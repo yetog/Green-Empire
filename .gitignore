@@ -1,6 +1,9 @@
 # Large extracted CSS — not needed in repo
 css/neighborly.css
 
+# site.config.json is safe to commit (no secrets) but Formspree ID is a placeholder
+# Dockerfile and nginx.conf ARE committed — needed for Docker build
+
 # Python cache
 __pycache__/
 *.pyc
