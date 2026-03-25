@@ -1,7 +1,7 @@
 {
   "brand": {
     "name": "Green Empire Landscaping",
-    "tagline": "Long Island's Premier Landscaping & Lawn Care",
+    "tagline": "Long Island's Premier Landscaping & Outdoor Renovation",
     "phone": "(516) 701-3571",
     "phoneRaw": "5167013571",
     "email": "info@greenempirelandscaping.com",
@@ -9,7 +9,7 @@
     "city": "Hempstead",
     "state": "NY",
     "zip": "11550",
-    "hours": "Open 24/7",
+    "hours": "Mon–Sat 7am–6pm",
     "domain": "www.greenempirelandscaping.com",
     "formspreeId": "YOURCODE",
     "facebook": "https://www.facebook.com/GreenEmpireLawn/",
@@ -24,153 +24,108 @@
   },
   "services": [
     {
-      "slug": "lawn-mowing",
-      "name": "Lawn Mowing & Maintenance",
-      "shortName": "Lawn Mowing",
+      "slug": "back-yard-landscaping",
+      "name": "Back Yard Landscaping",
+      "shortName": "Back Yard",
       "icon": "🌿",
-      "description": "Regular mowing, edging, trimming, and blowing to keep your lawn looking sharp year-round. Flexible weekly and bi-weekly schedules available.",
-      "heroText": "Keep your lawn looking its best all season long with Green Empire's professional mowing and maintenance service. We serve Hempstead and all of Nassau & Suffolk Counties.",
+      "description": "Transform your back yard into a private outdoor retreat. Custom plantings, garden beds, grading, and complete landscape renovations tailored to your home and lifestyle.",
+      "heroText": "Your back yard should be a space you actually want to spend time in. Green Empire designs and installs custom back yard landscapes for Long Island homeowners — built to look stunning and last for years.",
       "bullets": [
-        "Weekly and bi-weekly mowing schedules",
-        "Edging, trimming, and debris blowing",
-        "Consistent crew assigned to your property",
-        "Flexible scheduling — we work around you",
-        "Free estimates for new customers"
+        "Custom landscape design consultation",
+        "Garden bed design and installation",
+        "Lawn grading and restoration",
+        "Privacy plantings and screening",
+        "Full back yard renovation packages"
       ]
     },
     {
-      "slug": "landscape-design",
+      "slug": "front-yard-landscaping",
+      "name": "Front Yard Landscaping",
+      "shortName": "Front Yard",
+      "icon": "🏡",
+      "description": "Elevate your home's curb appeal with a professionally designed front yard. First impressions that reflect the quality of your property and your standards.",
+      "heroText": "Curb appeal is the first thing anyone notices. Green Empire creates polished, well-designed front yard landscapes that make Long Island homes stand out on the block.",
+      "bullets": [
+        "Curb appeal design consultation",
+        "Custom planting and garden bed design",
+        "Walkway edging and border installation",
+        "Seasonal color and display plantings",
+        "Lawn restoration and sodding"
+      ]
+    },
+    {
+      "slug": "paver-installation",
+      "name": "Paver Installation",
+      "shortName": "Pavers",
+      "icon": "🧱",
+      "description": "Premium paver systems for walkways, patios, pool decks, and outdoor floors. Precision installation using quality materials built for Long Island's climate.",
+      "heroText": "Pavers done right — from design to final seal. Green Empire installs premium paver systems across Long Island with craftsmanship and materials that stand the test of time.",
+      "bullets": [
+        "Walkway and garden path installation",
+        "Patio and outdoor floor systems",
+        "Pool deck paver installation",
+        "Step and landing construction",
+        "Polymeric sand finishing and professional sealing"
+      ]
+    },
+    {
+      "slug": "driveway-installation",
+      "name": "Driveway Installation",
+      "shortName": "Driveways",
+      "icon": "🛤️",
+      "description": "Custom driveway design and installation that balances function with curb appeal. Paver, asphalt, or gravel — designed to complement your home's architecture.",
+      "heroText": "Your driveway sets the tone before anyone reaches your front door. Green Empire installs custom driveways that blend seamlessly with your landscape and elevate your property's value.",
+      "bullets": [
+        "Paver driveway design and installation",
+        "Decorative borders and edging",
+        "Drainage and grading solutions",
+        "Existing driveway removal and disposal",
+        "New construction and full replacements"
+      ]
+    },
+    {
+      "slug": "patio-installation",
+      "name": "Patio Installation",
+      "shortName": "Patios",
+      "icon": "☀️",
+      "description": "Custom patio design and installation that extends your living space outdoors. From intimate seating areas to large entertaining spaces — crafted to complement your home.",
+      "heroText": "A well-designed patio changes how you experience your property. Green Empire creates custom patios for Long Island homeowners who want beauty, functionality, and durability in equal measure.",
+      "bullets": [
+        "Custom patio design and layout planning",
+        "Paver and natural stone installation",
+        "Steps, landings, and level transitions",
+        "Outdoor kitchen and fire feature prep",
+        "Drainage and lighting conduit planning"
+      ]
+    },
+    {
+      "slug": "outdoor-living-spaces",
+      "name": "Outdoor Living Spaces",
+      "shortName": "Outdoor Living",
+      "icon": "🔥",
+      "description": "Complete outdoor living environments — pergolas, fire features, outdoor kitchens, and custom seating areas. Designed for the way Long Island families actually live.",
+      "heroText": "Outdoor living is more than a trend — it's a lifestyle. Green Empire designs and builds complete outdoor environments that become the most-used space on your property.",
+      "bullets": [
+        "Pergola and shade structure installation",
+        "Fire pit and outdoor fireplace builds",
+        "Outdoor kitchen and bar setup",
+        "Custom seating and entertaining areas",
+        "Ambient lighting integration"
+      ]
+    },
+    {
+      "slug": "landscape-design-installation",
       "name": "Landscape Design & Installation",
       "shortName": "Landscape Design",
-      "icon": "🏡",
-      "description": "Custom landscape designs that transform your outdoor space from concept to completion — plants, trees, shrubs, garden beds, and more.",
-      "heroText": "Turn your outdoor space into something extraordinary. Green Empire's landscape design team creates custom plans for Long Island homes and businesses.",
+      "icon": "📐",
+      "description": "Full-service landscape design from concept to completion. A cohesive design process that transforms your property's potential into a polished, finished reality.",
+      "heroText": "Great outdoor spaces start with great design. Green Empire's landscape designers develop comprehensive plans for Long Island properties — then execute every detail with precision.",
       "bullets": [
-        "Custom design consultations",
-        "Full planting installations",
-        "Garden bed design and installation",
-        "Seasonal display installations",
-        "Before-and-after photos provided"
-      ]
-    },
-    {
-      "slug": "hardscape-patios",
-      "name": "Hardscape & Patios",
-      "shortName": "Hardscape & Patios",
-      "icon": "🪨",
-      "description": "Patios, walkways, driveways, retaining walls, fire pits, and outdoor living spaces built with premium materials and expert craftsmanship.",
-      "heroText": "Add real value to your property with a professionally built patio or hardscape. Green Empire handles everything from design to the final finishing touches.",
-      "bullets": [
-        "Paver patios and walkways",
-        "Retaining walls and raised beds",
-        "Driveways and parking areas",
-        "Outdoor fire pits and seating walls",
-        "Free on-site estimates"
-      ]
-    },
-    {
-      "slug": "tree-shrub-care",
-      "name": "Tree & Shrub Care",
-      "shortName": "Tree & Shrub Care",
-      "icon": "🌳",
-      "description": "Expert pruning, shaping, fertilization, and health treatments to keep your trees and shrubs looking great and staying healthy.",
-      "heroText": "Healthy trees and shrubs make the whole property look better. Green Empire's tree and shrub care service covers Long Island residential and commercial properties.",
-      "bullets": [
-        "Pruning and shaping",
-        "Fertilization treatments",
-        "Disease and pest treatments",
-        "Tree and shrub removal",
-        "Storm damage cleanup"
-      ]
-    },
-    {
-      "slug": "seasonal-cleanup",
-      "name": "Seasonal Cleanup",
-      "shortName": "Seasonal Cleanup",
-      "icon": "🍂",
-      "description": "Spring and fall cleanups including leaf removal, bed cleanup, debris removal, and full yard preparation for every season.",
-      "heroText": "Get your yard ready for the season with Green Empire's thorough spring and fall cleanup service. Serving all of Long Island.",
-      "bullets": [
-        "Leaf removal and hauling",
-        "Garden bed cleanup and prep",
-        "Debris and branch removal",
-        "Spring lawn dethatching",
-        "Fall winterization prep"
-      ]
-    },
-    {
-      "slug": "fertilization-weed-control",
-      "name": "Fertilization & Weed Control",
-      "shortName": "Fertilization",
-      "icon": "🌱",
-      "description": "Custom fertilization programs and targeted weed control for a thick, healthy, weed-free lawn that stands out in the neighborhood.",
-      "heroText": "A great lawn starts with the right nutrition. Green Empire's fertilization and weed control programs are tailored for Long Island's soil and climate.",
-      "bullets": [
-        "Custom fertilization schedules",
-        "Pre and post-emergent weed control",
-        "Soil testing available",
-        "Organic options available",
-        "Year-round programs"
-      ]
-    },
-    {
-      "slug": "mulch-installation",
-      "name": "Mulch Installation",
-      "shortName": "Mulch Installation",
-      "icon": "🌾",
-      "description": "Fresh mulch delivery and professional installation for beds and borders — improves curb appeal and promotes plant health.",
-      "heroText": "Fresh mulch makes a huge difference in how your property looks. Green Empire delivers and installs premium mulch throughout Long Island.",
-      "bullets": [
-        "Multiple mulch types available",
-        "Bulk delivery and installation",
-        "Bed edging included",
-        "Old mulch removal available",
-        "Same-day service available"
-      ]
-    },
-    {
-      "slug": "sod-installation",
-      "name": "Sod Installation",
-      "shortName": "Sod Installation",
-      "icon": "🌿",
-      "description": "Instant lawn transformation with professionally installed sod — get a lush, green, established lawn in a single day.",
-      "heroText": "Skip the wait with professionally installed sod. Green Empire transforms bare or damaged lawns into beautiful green spaces across Long Island.",
-      "bullets": [
-        "Soil preparation included",
-        "Premium sod varieties",
-        "Same-day installation available",
-        "Post-installation care guidance",
-        "Guaranteed to establish"
-      ]
-    },
-    {
-      "slug": "snow-removal",
-      "name": "Snow Removal",
-      "shortName": "Snow Removal",
-      "icon": "❄️",
-      "description": "24/7 snow plowing, shoveling, salting, and ice management for residential and commercial properties across Long Island.",
-      "heroText": "Don't get caught in a storm. Green Empire's 24/7 snow removal service keeps your property safe and accessible all winter — residential and commercial.",
-      "bullets": [
-        "24/7 availability — storm or not",
-        "Plowing, shoveling, and salting",
-        "Seasonal contracts available",
-        "Residential and commercial",
-        "Ice melt application"
-      ]
-    },
-    {
-      "slug": "commercial-landscaping",
-      "name": "Commercial Landscaping",
-      "shortName": "Commercial",
-      "icon": "🏢",
-      "description": "Professional grounds maintenance for HOAs, office parks, retail centers, and commercial properties throughout Nassau and Suffolk Counties.",
-      "heroText": "Make the right first impression. Green Empire provides reliable, professional landscaping for commercial properties across Long Island.",
-      "bullets": [
-        "HOAs and condo complexes",
-        "Office parks and corporate campuses",
-        "Retail and shopping centers",
-        "Custom maintenance contracts",
-        "Dedicated account manager"
+        "On-site design consultation",
+        "Custom landscape plans and renderings",
+        "Plant selection and professional sourcing",
+        "Full landscape installation and grading",
+        "Irrigation and drainage coordination"
       ]
     }
   ],
@@ -200,88 +155,88 @@
     {
       "name": "Michael T.",
       "location": "Hempstead, NY",
-      "text": "Green Empire completely transformed our backyard. They installed a beautiful patio and redesigned our garden beds. The crew was professional, on time, and cleaned everything up. Best landscapers on Long Island by far.",
+      "text": "Green Empire completely transformed our backyard. They designed a beautiful patio and renovated our entire landscape from scratch. The crew was professional, detail-oriented, and left everything immaculate. Exactly the quality we were looking for.",
       "rating": 5
     },
     {
       "name": "Sandra K.",
       "location": "Garden City, NY",
-      "text": "I've been using Green Empire for my lawn care for two seasons and couldn't be happier. They show up every week like clockwork and my lawn has never looked better. Also did an amazing spring cleanup.",
+      "text": "We hired Green Empire for a full front yard redesign and couldn't be happier with the result. The design consultation was thorough, the installation was flawless, and the finished product completely elevated our home's curb appeal.",
       "rating": 5
     },
     {
       "name": "Robert A.",
       "location": "Uniondale, NY",
-      "text": "Green Empire handled the landscaping for our commercial property and the results were outstanding. Professional, responsive, and the whole team took pride in their work. Will definitely use them again.",
+      "text": "Green Empire built us a stunning outdoor living space — custom patio, pergola, and fire pit area. The attention to detail was impressive from start to finish. It's become the spot where we spend all our time.",
       "rating": 5
     }
   ],
   "faqs": [
     {
       "q": "What areas of Long Island do you serve?",
-      "a": "We serve all of Nassau and Suffolk Counties, including Hempstead, Garden City, Great Neck, Hicksville, Levittown, Massapequa, Huntington, Babylon, Islip, Smithtown, and 15+ more cities. Not sure if we cover your area? Give us a call at (516) 701-3571."
+      "a": "We serve Nassau and Suffolk Counties, including Hempstead, Garden City, Great Neck, Hicksville, Levittown, Massapequa, Huntington, Babylon, Islip, Smithtown, and 15+ more communities. Not sure if we cover your area? Call or text us at (516) 701-3571."
     },
     {
       "q": "How do I get a free estimate?",
-      "a": "You can call or text us at (516) 701-3571 anytime — we're open 24/7. Or fill out the form on our website and we'll get back to you within 1 business hour."
+      "a": "Call or text us at (516) 701-3571, or fill out the estimate form on our website. We'll get back to you within 1 business hour to schedule a free on-site consultation. No pressure, no obligation."
     },
     {
-      "q": "Are you licensed and insured?",
-      "a": "Yes. Green Empire Landscaping is fully licensed and insured in New York State. We carry full liability insurance and workers' compensation on every job."
+      "q": "Are you certified and insured?",
+      "a": "Yes. Green Empire Landscaping is fully certified and insured in New York State. We carry comprehensive liability insurance and workers' compensation coverage on every project."
     },
     {
-      "q": "Do you offer commercial landscaping services?",
-      "a": "Yes. We serve HOAs, office parks, retail centers, and commercial properties throughout Nassau and Suffolk Counties. Contact us for a commercial quote."
+      "q": "What types of projects do you specialize in?",
+      "a": "We specialize in outdoor renovation and landscaping — back yard and front yard transformations, paver installation, driveway installation, patio builds, outdoor living spaces, and full landscape design and installation. Every project is custom."
     },
     {
-      "q": "How often should I get my lawn mowed?",
-      "a": "For most Long Island lawns, weekly mowing is ideal during the growing season (April–October) and bi-weekly in the cooler months. We'll recommend the best schedule for your lawn type."
+      "q": "What's the best time to start a landscaping project?",
+      "a": "Spring and fall are our most popular seasons for design and installation projects. That said, we work year-round on Long Island. We recommend scheduling a consultation at least 2–3 weeks before you'd like to start."
     },
     {
-      "q": "Do you offer snow removal?",
-      "a": "Yes — we offer 24/7 snow plowing, shoveling, and salting for residential and commercial properties. Seasonal contracts are available. Call us before the season to lock in your spot."
+      "q": "How long does a typical project take?",
+      "a": "Project timelines vary by scope. A patio or paver installation typically takes 3–7 days. Full landscape renovations may take 1–3 weeks. We'll give you a clear timeline during your consultation before any work begins."
     },
     {
-      "q": "What's the best time to schedule a landscape design project?",
-      "a": "Spring and fall are our most popular seasons for design and installation projects. We recommend scheduling at least 2–4 weeks in advance, though we do accommodate last-minute requests when possible."
+      "q": "Do you offer a design consultation before starting?",
+      "a": "Yes — every project starts with a free on-site consultation. We walk the property, discuss your vision, and develop a plan before anything is quoted or scheduled. We want to make sure the result is exactly what you had in mind."
     }
   ],
   "gallery": [
     {
       "src": "",
-      "alt": "Lawn mowing and maintenance project on Long Island",
-      "label": "Lawn Maintenance",
+      "alt": "Back yard landscaping renovation on Long Island",
+      "label": "Back Yard Landscaping",
       "icon": "🌿"
     },
     {
       "src": "",
-      "alt": "Landscape design and installation project",
-      "label": "Landscape Design",
+      "alt": "Front yard landscaping and curb appeal",
+      "label": "Front Yard Landscaping",
       "icon": "🏡"
     },
     {
       "src": "",
-      "alt": "Hardscape patio installation",
-      "label": "Hardscape & Patios",
-      "icon": "🪨"
+      "alt": "Premium paver installation project",
+      "label": "Paver Installation",
+      "icon": "🧱"
     },
     {
       "src": "",
-      "alt": "Tree and shrub care service",
-      "label": "Tree & Shrub Care",
-      "icon": "🌳"
+      "alt": "Custom patio installation",
+      "label": "Patio Installation",
+      "icon": "☀️"
     },
     {
       "src": "",
-      "alt": "Seasonal cleanup and mulch installation",
-      "label": "Seasonal Cleanup",
-      "icon": "🍂"
+      "alt": "Outdoor living space with fire pit and pergola",
+      "label": "Outdoor Living Space",
+      "icon": "🔥"
     },
     {
       "src": "",
-      "alt": "Commercial landscaping project",
-      "label": "Commercial Work",
-      "icon": "🏢"
+      "alt": "Custom landscape design and installation",
+      "label": "Landscape Design",
+      "icon": "📐"
     }
   ]
 }

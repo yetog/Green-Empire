@@ -121,7 +121,7 @@ def footer():
     <div class="container footer-grid">
       <div class="footer-brand">
         <a href="/"><img src="/images/logo.png" alt="{NAME}" height="56" class="footer-logo" /></a>
-        <p>{NAME} — Long Island's trusted landscaping professionals. Based in {B['city']}, NY. Licensed, insured, open 24/7.</p>
+        <p>{NAME} — Long Island's landscaping &amp; outdoor renovation specialists. Certified, insured, and locally based in {B['city']}, NY.</p>
         <a href="tel:{PHONE_RAW}" class="footer-phone">{PHONE}</a>
         <p class="footer-address">{ADDRESS}</p>
         <div class="footer-social">
@@ -280,7 +280,7 @@ LOCAL_BIZ_SCHEMA = f"""<script type="application/ld+json">
     "telephone":"{PHONE}",
     "address":{{"@type":"PostalAddress","streetAddress":"{B['address']}","addressLocality":"{B['city']}","addressRegion":"{B['state']}","postalCode":"{B['zip']}","addressCountry":"US"}},
     "priceRange":"$$",
-    "openingHours":"Mo-Su 00:00-23:59",
+    "openingHours":"Mo-Sa 07:00-18:00",
     "geo":{{"@type":"GeoCoordinates","latitude":40.7065,"longitude":-73.6212}},
     "areaServed":{json.dumps([{"@type":"City","name":a["name"]} for a in AREAS])},
     "sameAs":["{B['facebook']}","{B['instagram']}"]
@@ -324,7 +324,7 @@ def gallery_section():
     <div class="section-header">
       <span class="eyebrow">Our Work</span>
       <h2>Recent Projects on Long Island</h2>
-      <p>See the quality of our craftsmanship across Nassau &amp; Suffolk Counties — from weekly lawn care to full outdoor transformations.</p>
+      <p>See the quality of our work across Nassau &amp; Suffolk Counties — from custom landscapes and patios to full outdoor renovation projects.</p>
     </div>
     <div class="gallery-grid">
 {items_html}
@@ -362,7 +362,7 @@ def make_homepage():
 
     content = f"""{head(
         f"Landscaping Services in {B['city']}, NY | {NAME} | {PHONE}",
-        f"{NAME} provides professional lawn care and landscaping in {B['city']}, NY. Serving Nassau & Suffolk Counties. Call {PHONE} for a free estimate!",
+        f"{NAME} provides professional landscaping &amp; outdoor renovation in {B['city']}, NY. Custom patios, pavers, driveways &amp; more. Call {PHONE} for a free estimate!",
         "/",
         LOCAL_BIZ_SCHEMA
     )}
@@ -376,15 +376,15 @@ def make_homepage():
     <div class="hero-content">
       <span class="hero-badge">Hempstead, NY · Nassau &amp; Suffolk Counties</span>
       <h1>{B['tagline']}</h1>
-      <p>Trust Green Empire's local experts to transform and maintain your residential or commercial property. Licensed, insured, open 24/7.</p>
+      <p>Trust Green Empire's local experts to renovate and transform your outdoor space — from custom landscapes to patios, pavers, and outdoor living environments.</p>
       <div class="hero-actions">
         <a href="/request-service.html" class="btn btn-primary btn-lg">Get a Free Estimate</a>
         <a href="tel:{PHONE_RAW}" class="btn btn-outline-white btn-lg">Call {PHONE}</a>
       </div>
       <div class="hero-trust">
         <span>⭐ 5-Star Rated</span>
-        <span>🛡️ Licensed &amp; Insured</span>
-        <span>🕐 Open 24/7</span>
+        <span>🛡️ Certified &amp; Insured</span>
+        <span>📍 Hempstead, NY Based</span>
       </div>
     </div>
   </div>
@@ -408,10 +408,10 @@ def make_homepage():
       <h2>Get a Quote Today</h2>
       <p>We respond within 1 business hour. No pressure, no obligation — just honest pricing from Long Island's trusted landscaping team.</p>
       <ul>
-        <li><span class="icon">📞</span><div><strong>Call anytime:</strong> <a href="tel:{PHONE_RAW}">{PHONE}</a> — we're open 24/7.</div></li>
+        <li><span class="icon">📞</span><div><strong>Call or text:</strong> <a href="tel:{PHONE_RAW}">{PHONE}</a> — we respond within 1 business hour.</div></li>
         <li><span class="icon">📍</span><div><strong>Based in Hempstead, NY</strong> — serving Nassau &amp; Suffolk Counties.</div></li>
-        <li><span class="icon">🛡️</span><div><strong>Licensed &amp; Insured</strong> in New York State.</div></li>
-        <li><span class="icon">⭐</span><div><strong>5-star rated</strong> by 500+ Long Island homeowners.</div></li>
+        <li><span class="icon">🛡️</span><div><strong>Certified &amp; Insured</strong> in New York State.</div></li>
+        <li><span class="icon">⭐</span><div><strong>5-star rated</strong> by Long Island homeowners.</div></li>
       </ul>
     </div>
     <div class="booking-form-col">
@@ -426,7 +426,7 @@ def make_homepage():
     <div class="section-header">
       <span class="eyebrow">What We Do</span>
       <h2>Complete Landscaping Services for Long Island</h2>
-      <p>From weekly lawn care to full outdoor transformations — residential and commercial.</p>
+      <p>From front and back yard renovations to custom patios, pavers, driveways, and outdoor living spaces.</p>
     </div>
     <div class="service-grid">
       {service_cards}
@@ -442,8 +442,8 @@ def make_homepage():
       <h2>How Green Empire Can Help You</h2>
     </div>
     <div class="how-we-help-content">
-      <p>Green Empire Landscaping is a full-service grounds care company. Our established systems allow us to deliver industry-leading lawn care and landscape solutions to commercial and residential clients across Long Island. Built on a commitment to excellence, we are driven by a passion to exceed customer expectations and consistently deliver results you'll be proud of.</p>
-      <p>All of our services are locally owned and operated out of Hempstead, NY. We may offer fewer or more services depending on your area — contact us for details or a customized on-site assessment. There's no obligation and no pressure.</p>
+      <p>Green Empire is a full-service landscaping and outdoor renovation company based in Hempstead, NY. We specialize in transforming Long Island properties — from front and back yard redesigns to custom patios, paver systems, driveways, and complete outdoor living environments. Every project is designed and built to match your vision.</p>
+      <p>We serve Nassau and Suffolk Counties and take on a limited number of projects at a time to ensure every client gets the attention they deserve. Contact us for a free on-site consultation — no pressure, no obligation.</p>
       <a href="/request-service.html" class="btn btn-primary">Get a Free Consultation</a>
     </div>
   </div>
@@ -459,10 +459,10 @@ def make_homepage():
     <h2>{B['city']}'s Most Trusted Landscaping Team</h2>
     <p>We're not a national chain — we're your neighbors. Based at 64 Hilton Ave in Hempstead, NY, we know Long Island properties and what it takes to make them stand out.</p>
     <ul class="check-list">
-      <li>Fully licensed and insured in New York State</li>
+      <li>Fully certified and insured in New York State</li>
       <li>Transparent, upfront pricing — no hidden fees</li>
-      <li>Available 24/7 for snow removal and emergencies</li>
-      <li>Residential and commercial expertise</li>
+      <li>Every project starts with a free on-site consultation</li>
+      <li>Custom designs built for your property and vision</li>
       <li>100% satisfaction guarantee on every job</li>
     </ul>
     <a href="/about/" class="btn btn-primary">Meet Our Team</a>
@@ -533,7 +533,7 @@ def make_homepage():
       </article>
       <article class="blog-card">
         <h3>Outdoor Landscaping Ideas for Every Budget</h3>
-        <p>Make the most of your backyard with creative landscaping ideas from our experienced Long Island team — options to suit every lifestyle and budget, from simple lawn care to full transformations.</p>
+        <p>Make the most of your backyard with creative outdoor renovation ideas from our Long Island team — from custom patio builds to full landscape transformations, for every budget.</p>
         <a href="/blog/outdoor-landscaping-ideas/" class="read-more">Read More →</a>
       </article>
       <article class="blog-card">
@@ -578,7 +578,7 @@ def make_service_page(s):
     )
     content = f"""{head(
         f"{s['name']} in {B['city']}, NY | {NAME} | {PHONE}",
-        f"Professional {s['name'].lower()} in {B['city']}, NY and all of Long Island. {NAME} — licensed, insured, open 24/7. Call {PHONE} for a free estimate.",
+        f"Professional {s['name'].lower()} in {B['city']}, NY and all of Long Island. {NAME} — certified, insured, and locally based. Call {PHONE} for a free estimate.",
         f"/services/{s['slug']}/",
         bc_schema
     )}
@@ -677,7 +677,7 @@ def make_services_hub():
     bc, bc_schema = breadcrumbs([("Home", "/"), ("Services", None)])
     content = f"""{head(
         f"Landscaping Services | {NAME} | {PHONE}",
-        f"{NAME} offers complete landscaping services in {B['city']}, NY and all of Long Island. Lawn care, landscape design, hardscape, snow removal & more. Call {PHONE}.",
+        f"{NAME} offers professional landscaping &amp; outdoor renovation in {B['city']}, NY. Patios, pavers, driveways, outdoor living spaces &amp; more. Call {PHONE}.",
         "/services/",
         bc_schema
     )}
@@ -686,7 +686,7 @@ def make_services_hub():
 <section class="page-hero">
   <div class="container">
     <h1>Our Landscaping Services</h1>
-    <p>Complete residential and commercial landscaping for Long Island homeowners and businesses. Licensed, insured, and locally owned in {B['city']}, NY.</p>
+    <p>Landscaping &amp; outdoor renovation for Long Island homeowners. Custom designs, premium materials, and certified craftsmanship — locally based in {B['city']}, NY.</p>
   </div>
 </section>
 <section class="section">
@@ -736,7 +736,7 @@ def make_city_page(area):
 
     content = f"""{head(
         f"Landscaping Services in {city}, NY | {NAME} | {PHONE}",
-        f"Professional landscaping in {city}, NY. {NAME} serves {city} and all of {county} County. Lawn care, design, hardscape, snow removal & more. Call {PHONE}.",
+        f"Professional landscaping &amp; outdoor renovation in {city}, NY. {NAME} serves {city} and {county} County. Patios, pavers, driveways &amp; more. Call {PHONE}.",
         f"/service-areas/{slug}/",
         bc_schema + city_schema
     )}
@@ -863,7 +863,7 @@ def make_about():
     bc, bc_schema = breadcrumbs([("Home", "/"), ("About Us", None)])
     content = f"""{head(
         f"About Us | {NAME} — Hempstead, NY",
-        f"Learn about {NAME}, Long Island's trusted landscaping company based in {B['city']}, NY. Locally owned, licensed, insured, and open 24/7.",
+        f"Learn about {NAME}, Long Island's landscaping &amp; outdoor renovation company based in {B['city']}, NY. Locally owned, certified, and insured.",
         "/about/",
         bc_schema
     )}
@@ -882,14 +882,14 @@ def make_about():
       <div class="split-content">
         <span class="eyebrow">Who We Are</span>
         <h2>Built for Long Island</h2>
-        <p>{NAME} is a locally owned and operated landscaping company based at 64 Hilton Ave in Hempstead, NY. We serve residential homeowners and commercial properties throughout Nassau and Suffolk Counties.</p>
+        <p>{NAME} is a locally owned landscaping and outdoor renovation company based at 64 Hilton Ave in Hempstead, NY. We serve residential homeowners throughout Nassau and Suffolk Counties.</p>
         <p>We're not a national franchise — every crew member is local, every estimate is honest, and every job is backed by our 100% satisfaction guarantee.</p>
         <ul class="check-list">
-          <li>Fully licensed and insured in New York State</li>
+          <li>Fully certified and insured in New York State</li>
           <li>Locally owned — based in {B['city']}, NY</li>
           <li>Experienced crews with background checks</li>
           <li>100% satisfaction guarantee</li>
-          <li>Available 24/7 for snow and emergencies</li>
+          <li>Every project starts with a free on-site consultation</li>
         </ul>
       </div>
     </div>
@@ -905,7 +905,7 @@ def make_about():
       <div class="feature-card"><div class="feature-icon">📍</div><h3>Local Expertise</h3><p>We know Long Island's soil, climate, and neighborhoods. Our recommendations are built for this area.</p></div>
       <div class="feature-card"><div class="feature-icon">💰</div><h3>Transparent Pricing</h3><p>You'll always know what you're paying before we start. No surprises, no hidden fees.</p></div>
       <div class="feature-card"><div class="feature-icon">⭐</div><h3>Satisfaction Guaranteed</h3><p>Not happy? We'll make it right. Every service is backed by our 100% guarantee.</p></div>
-      <div class="feature-card"><div class="feature-icon">🕐</div><h3>Open 24/7</h3><p>Storms don't keep business hours. Neither do we. Available around the clock for snow and emergencies.</p></div>
+      <div class="feature-card"><div class="feature-icon">📐</div><h3>Custom Designs</h3><p>Every project is designed specifically for your property — no templates, no shortcuts, no one-size-fits-all solutions.</p></div>
     </div>
   </div>
 </section>
@@ -957,7 +957,7 @@ def make_faq():
   <div class="container" style="max-width:800px">
     <div class="faq-list">{faq_items}</div>
     <div class="cta-inline mt-4">
-      <p>Still have questions? <a href="tel:{PHONE_RAW}">Call us at {PHONE}</a> — we're open 24/7.</p>
+      <p>Still have questions? <a href="tel:{PHONE_RAW}">Call or text us at {PHONE}</a> — we respond within 1 business hour.</p>
     </div>
   </div>
 </section>
@@ -1052,7 +1052,7 @@ def make_request_service():
         <h2>Let's Talk About Your Project</h2>
         <p>Whether it's a quick lawn mowing quote or a full landscape renovation, we're here to help. Tell us about your project and we'll provide a free, transparent estimate.</p>
         <div class="features-grid" style="margin-top:2rem">
-          <div class="feature-card"><div class="feature-icon">📞</div><h3>Call or Text</h3><p><a href="tel:{PHONE_RAW}">{PHONE}</a><br/>Available 24/7</p></div>
+          <div class="feature-card"><div class="feature-icon">📞</div><h3>Call or Text</h3><p><a href="tel:{PHONE_RAW}">{PHONE}</a><br/>Mon–Sat, 7am–6pm</p></div>
           <div class="feature-card"><div class="feature-icon">📍</div><h3>Our Location</h3><p>{ADDRESS}</p></div>
           <div class="feature-card"><div class="feature-icon">⏱️</div><h3>Response Time</h3><p>Within 1 business hour</p></div>
         </div>
