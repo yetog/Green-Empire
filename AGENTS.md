@@ -1,9 +1,48 @@
 # Green Empire Landscaping — Agent Handoff + Project History
 
 **Repo:** https://github.com/yetog/Green-Empire
-**Local path:** `/Users/Zay/Desktop/scripts/Webiste Clone Script/green-empire/`
+**Branch:** `master`
+**Live URL:** https://zaylegend.com/green-empire/
 **Client deadline:** March 28, 2026
-**Preview:** `cd` into the folder and run `python3 -m http.server 3001`, then open `http://localhost:3001`
+**Local preview:** `python3 -m http.server 8080` → http://localhost:8080
+
+---
+
+## Deployment Architecture
+
+The site is served as a **static subdirectory** on a personal VPS via nginx.
+
+- **Server:** nginx on `zaylegend.com`
+- **Served path:** `/green-empire/` subdirectory (not a subdomain)
+- **Site root on server:** somewhere under nginx's webroot — confirm with `nginx -T | grep root` or check `/etc/nginx/sites-enabled/`
+- **Deploy process:** pull latest from `yetog/Green-Empire` master → place files in nginx-served directory → no build step required (all HTML is pre-generated)
+
+### Deployment Agent Instructions
+
+When deploying updates:
+
+1. Pull latest from GitHub:
+   ```bash
+   cd /path/to/green-empire   # confirm actual server path
+   git pull origin master
+   ```
+
+2. Regenerate HTML (if `generate.py` or `site.config.json` changed):
+   ```bash
+   python3 generate.py
+   ```
+   All HTML is pre-generated. Static files only — no npm, no build tool.
+
+3. No nginx restart needed for static file changes. If nginx config changes, run:
+   ```bash
+   nginx -t && systemctl reload nginx
+   ```
+
+4. Verify: https://zaylegend.com/green-empire/
+
+### nginx Config Notes
+
+The site lives at a subpath (`/green-empire/`), not the server root. All internal links in generated HTML use **relative paths** (e.g., `href="../../css/main.css"`) so no base-href or rewrite rules are needed. If you see 404s on assets, confirm the nginx `root` or `alias` directive points to the directory containing `index.html`, `css/`, `js/`, `images/`.
 
 ---
 
@@ -11,129 +50,108 @@
 
 **Owner:** Zay — web & audio engineer, NYC/Philly/Barbados area, doing freelance client web work.
 
-**What this is:** Site 1 of 3 Long Island service business websites. The client wants:
+**What this is:** Site 1 of 3 Long Island service business websites.
 1. **Green Empire Landscaping** — ✅ Built (this repo)
 2. **Handyman site** — waiting on client logo + brand details
 3. **Plumbing site** — waiting on client logo + brand details
 
-**Reference:** The design is modeled on the Neighborly franchise template (groundsguys.com, mrhandyman.com, mrrooter.com). The goal is to beat those nationwide pages on Google by building locally-specific, LocalBusiness-schema-rich pages for Long Island cities.
+**Reference:** Design modeled on the Neighborly franchise template (groundsguys.com). The goal is to beat those nationwide pages on Google by building locally-specific, LocalBusiness-schema-rich pages for Long Island cities.
 
-**SEO play:** Each of the 20 `/service-areas/[city]/` pages targets `"landscaping [city] NY"`. Google proximity ranking favors locally-hosted, locally-specific pages over franchise location directories. That's the edge.
-
----
-
-## Version History & Zay's Opinions
-
-### Version 1 — First Draft (the "reference" version)
-**CSS file:** saved at `/Users/Zay/Downloads/Landscaping Services in Hempstead, NY _ Green Empire Landscaping _ (516) 701-3571_files/main.css`
-
-**What it looked like:**
-- White nav bar (`background: #fff`) with dark text links — clean, professional local-business feel
-- Small dark green top bar strip above the nav
-- Hero: single-column, content only (badge → h1 → paragraph → buttons → trust badges). No form in the hero.
-- Booking form in its own dedicated section below the stats bar — `booking-wrap` with 1fr 1.3fr grid: info + bullets on the left, form card on the right
-- Service cards: `service-card-img-placeholder` — a 200px tall green gradient block acting as a photo banner at the top of each card. Made cards feel taller and substantial
-- Stats bar: solid `var(--brand-primary)` green — simple, warm
-- CTA banner: clean `linear-gradient(135deg, brand-primary → brand-primary-dark)` — not too dark
-- Section headers: eyebrow label in dark green, clean centered text — no decorative underlines
-- Body `p` tags: `color: #4b5563` (medium gray) — softer contrast, easier to read
-
-**Zay's verdict:** "In your first draft you actually did a better job formatting... the columns are super narrow. Just not sure if the site really compares to the clone visually." → **This version had the best layout and visual feel.** It's the reference target.
+**SEO play:** Each of the 20 `/service-areas/[city]/` pages targets `"landscaping [city] NY"`. Google proximity ranking favors locally-specific pages over franchise location directories.
 
 ---
 
-### Version 2 — Extracted Neighborly CSS (abandoned)
-**What happened:** We extracted the full 750KB Neighborly CSS from groundsguys.com, color-swapped the variables to Green Empire's brand.
+## Current State (as of March 25, 2026) ← YOU ARE HERE
 
-**What it looked like:**
-- Technically color-correct but layout was completely broken
-- Service card grids rendered as very narrow columns
-- Spacing was off across the board
+**Commits:** `master` branch on `yetog/Green-Empire`
 
-**Why it failed:** The Neighborly CSS requires their React component tree + Tailwind JIT runtime to render correctly. Without that JS runtime, the grid layout collapses silently. 750KB of CSS vs 15KB and it looked worse.
+### What's live and working:
+- ✅ 7 services (complete overhaul from original 10 — see below)
+- ✅ 20 service area city pages (Nassau + Suffolk County)
+- ✅ Updated tagline: "Long Island's Premier Landscaping & Outdoor Renovation"
+- ✅ "Certified & Insured" everywhere (was "Licensed & Insured")
+- ✅ Real hours: Mon–Sat 7am–6pm (removed all "Open 24/7" references)
+- ✅ 7 new FAQs matching current services
+- ✅ Gallery section with 6 placeholder slots (ready for real photos)
+- ✅ SMS opt-in checkbox on all forms
+- ✅ "How Green Empire Can Help You" section on homepage
+- ✅ Blog resources cards (3 stubs — pages not yet built)
+- ✅ Service cards support photos (falls back to icon if no image provided)
+- ✅ JSON-LD schema: LocalBusiness, BreadcrumbList, FAQPage, Service on all relevant pages
+- ✅ UTF-8 encoding fix for Windows compatibility in generator
 
-**Zay's verdict:** Layout broke badly. Abandoned. Never use `neighborly.css` or `footer.css` again — they're in `.gitignore` for a reason.
+### Current services (7):
+| Slug | Name |
+|------|------|
+| `back-yard-landscaping` | Back Yard Landscaping |
+| `front-yard-landscaping` | Front Yard Landscaping |
+| `paver-installation` | Paver Installation |
+| `driveway-installation` | Driveway Installation |
+| `patio-installation` | Patio Installation |
+| `outdoor-living-spaces` | Outdoor Living Spaces |
+| `landscape-design-installation` | Landscape Design & Installation |
 
----
-
-### Version 3 — Generator Rewrite + Class-Name Mismatch (buggy intermediate)
-**What happened:** We built `generate.py` and rewrote `css/main.css` — but the first CSS rewrite invented class names that didn't match what the generator actually outputs.
-
-**Example bugs:**
-- CSS had `.services-grid` — generator outputs `.service-grid`
-- CSS had `.hero-form-card` — generator outputs `.booking-card`
-- Service cards rendered as tiny or misaligned
-
-**Fix:** Ran a Python coverage script to compare every class in all 41 generated HTML files against what CSS actually defined. Rewrote CSS from generator source.
-
----
-
-### Version 4 — "Unprofessional" polished pass (overcorrected)
-**What happened:** We applied a heavy visual polish pass — dark gradients everywhere, radial glows, very dark CTA banner (`#0d2718`), small icon bubble on service cards, green nav, eyebrow labels with decorative lines.
-
-**What Zay said:** "Now all the pages look unprofessional."
-
-**Specific problems Zay flagged:**
-- Full green nav (`background: var(--green)`) — felt heavy, not clean
-- Small 56px icon bubble on service cards instead of a tall header block — cards looked weak
-- Hero had a 2-column `1fr 400px` grid cramming the booking form into the hero column → squished layout
-- Stats bar with near-black dark gradient — too gloomy
-- CTA banner near-black — too dark, killed energy
-- Eyebrow labels had a lime-green decorative line before them — fussy
-
----
-
-### Version 5 — Current (as of March 24, 2026) ← YOU ARE HERE
-**Commits:** `0a0ecbd`, `70ff324` on `main`
-
-**What changed back toward V1:**
-- ✅ White nav with dark text links — matches first draft
-- ✅ Hero: single-column, content only — form moved out
-- ✅ Booking form: dedicated section after stats (`booking-section`) with `booking-wrap` (1fr 1.3fr grid)
-- ✅ Service cards: full-width 180px green gradient header block — not a small bubble
-- ✅ Stats bar: solid brand-primary green
-- ✅ CTA banner: clean brand-primary gradient
-- ✅ Hero badge: solid lime green with dark text (not transparent white)
-- ✅ Softer body text: `p { color: var(--gray-dark) }` — `#374151` (not near-black)
-- ✅ Eyebrow labels: dark green, no decorative lines — simpler
-
-**What's still not matching V1 exactly:**
-- The nav currently has no separate dark green top strip above it (V1 had `.nav-top` above `.nav-main`). The `.top-bar` in the generator already produces this — it just needs CSS to look right with the new white nav context.
-- The booking section bullet icons in V1 used circular colored icon containers — current version matches this.
+### Page count: 38 total
+| Path | Count |
+|------|-------|
+| `index.html` + root pages | ~5 |
+| `services/index.html` + 7 detail pages | 8 |
+| `service-areas/index.html` + 20 city pages | 21 |
+| `about/`, `faq/`, `reviews/` | 3 |
+| Legal pages | 3 |
 
 ---
 
-## Current Architecture
+## Version History (abridged)
+
+### V1 — First draft (reference target)
+- White nav, dark text links, clean local-business feel
+- Small dark green top strip above nav
+- Hero: single-column, content only — no form
+- Booking form in dedicated section below stats (1fr 1.3fr grid)
+- Service cards: 200px tall green gradient header block
+- Zay's verdict: **best layout and visual feel — this is the reference target**
+
+### V2 — Extracted Neighborly CSS (abandoned)
+- Used 750KB groundsguys.com CSS, color-swapped variables
+- **Failed:** Neighborly CSS requires React runtime to render. Layout collapsed without it.
+- **Rule:** Never use `css/neighborly.css` or `footer.css` — in `.gitignore` for a reason.
+
+### V3 — Generator rewrite + class mismatch (buggy intermediate)
+- Built `generate.py` but CSS class names didn't match generator output
+- Fixed by running a coverage script comparing every HTML class against CSS definitions
+
+### V4 — "Unprofessional" polish pass (overcorrected)
+- Full green nav, small icon bubbles on service cards, very dark CTA/stats
+- Zay's verdict: "All the pages look unprofessional"
+- Problems: green nav felt heavy, icon bubbles made cards look weak, near-black gradients killed energy
+
+### V5 — Current
+- White nav restored, original hero layout, 180px gradient header on service cards
+- Booking section as dedicated block below stats
+- All Ariel client feedback implemented (services overhaul, positioning, hours, FAQs)
+
+---
+
+## Architecture
 
 ### How it works
-`generate.py` reads `site.config.json` → outputs all 41 HTML files. **Never hand-edit the HTML.** Edit the config or the generator, then run `python3 generate.py`.
-
-### Pages (41 total)
-| Path | Purpose |
-|------|---------|
-| `index.html` | Homepage |
-| `services/index.html` | Services hub |
-| `services/[slug]/index.html` | 10 service detail pages |
-| `service-areas/index.html` | Service areas hub |
-| `service-areas/[slug]/index.html` | 20 Long Island city pages |
-| `about/index.html` | About page |
-| `faq/index.html` | FAQ (FAQPage schema) |
-| `reviews/index.html` | Reviews |
-| `request-service.html` | Full estimate form |
-| `thank-you.html` | Post-form confirmation |
-| `privacy-policy.html`, `terms.html`, `accessibility.html` | Legal |
+`generate.py` reads `site.config.json` → outputs all HTML files. **Never hand-edit the HTML.** Edit the config or the generator, then run `python3 generate.py`.
 
 ### Tech Stack
-- **Generator:** `generate.py` (~1000 lines Python) — reads `site.config.json`
-- **CSS:** `css/main.css` — ~1500 lines, custom, zero framework dependency
+- **Generator:** `generate.py` (~1100 lines Python) — reads `site.config.json`
+- **CSS:** `css/main.css` — ~1600 lines, custom, zero framework dependency
 - **JS:** `js/main.js` — mobile menu, FAQ accordion, async Formspree submit
 - **Forms:** Formspree — client must replace `YOURCODE` in `site.config.json > brand.formspreeId`
 - **Schema:** LocalBusiness, BreadcrumbList, FAQPage, Service JSON-LD on all relevant pages
+- **Hosting:** nginx static file serving at `/green-empire/` subpath on `zaylegend.com`
 
 ### Brand
 - **Name:** Green Empire Landscaping
-- **Phone:** (516) 701-3571 | Raw: `5167013571`
+- **Phone:** (516) 701-3571 | Raw: `5167013571` *(will be replaced with CallRail number)*
 - **Address:** 64 Hilton Ave, Hempstead, NY 11550
+- **Email:** info@greenempirelandscaping.com
+- **Hours:** Mon–Sat 7am–6pm
 - **Primary:** `#1e4d2b` (dark forest green) → CSS var `--green`
 - **Secondary:** `#6aad32` (lime green) → CSS var `--green-light`
 - **Facebook:** https://www.facebook.com/GreenEmpireLawn/
@@ -162,21 +180,20 @@
 |-------|-----------|
 | `.hero` | Full-height homepage hero, single-column content |
 | `.hero-content` | Max-width text block inside hero |
-| `.hero-badge` | Solid lime green pill badge — "Hempstead, NY · Nassau & Suffolk" |
-| `.hero-trust` | Row of pill badges — 5-star, licensed, 24/7 |
+| `.hero-badge` | Solid lime green pill badge |
 | `.booking-section` | Homepage booking section (light bg, below stats) |
 | `.booking-wrap` | 1fr 1.3fr grid — info left, form right |
-| `.booking-info` | Left column with bullets |
-| `.booking-form-col` | Right column wrapping the form card |
-| `.booking-card` / `.booking-card-header` / `.booking-form` | The form card component (used on service/city pages too) |
-| `.stats-bar` + `.stats-grid` + `.stat` + `.stat-n` + `.stat-l` | Stats strip below hero |
+| `.booking-card` / `.booking-form` | The form card component |
+| `.stats-bar` + `.stats-grid` + `.stat` | Stats strip below hero |
 | `.service-grid` | 3-col service card grid |
-| `.service-card` + `.service-card-icon` + `.service-card-body` | Service card — icon is 180px tall gradient block |
-| `.split-section` + `.split-img` + `.split-content` | 50/50 image+text (Why Us section) |
+| `.service-card` + `.service-card-icon` + `.service-card-img` | Service card |
+| `.gallery-grid` + `.gallery-item` + `.gallery-placeholder-slot` | Gallery section |
+| `.blog-grid` + `.blog-card` | Blog resource cards |
+| `.how-we-help` + `.how-we-help-content` | "How We Can Help" homepage section |
+| `.split-section` + `.split-img` + `.split-content` | 50/50 Why Us section |
 | `.check-list` | Bulleted list with SVG checkmark circles |
 | `.review-grid` + `.review-card` | 3-col review cards |
-| `.city-grid` + `.city-pill` | 5-col city links with arrow |
-| `.area-grid` + `.area-card` | City cards on service-areas hub |
+| `.city-grid` + `.city-pill` | 5-col city links |
 | `.content-sidebar-layout` | Service/city detail pages (content + sticky sidebar) |
 | `.page-hero` | Inner page hero (gradient bg, not full-height) |
 | `.section-header` | Centered section heading block |
@@ -188,9 +205,9 @@
 
 ## Critical Rules (learned the hard way)
 
-1. **Never use the 750KB Neighborly CSS.** It requires their React runtime. `css/neighborly.css` is in `.gitignore`. Use only `css/main.css`.
+1. **Never use the 750KB Neighborly CSS.** `css/neighborly.css` is `.gitignore`d for a reason.
 
-2. **CSS class names must exactly match generator output.** If you add a CSS class, grep the generated HTML first to confirm the class exists. Run this to check coverage:
+2. **CSS class names must exactly match generator output.** Run this to check coverage:
    ```bash
    python3 -c "
    import glob, re
@@ -203,22 +220,22 @@
 
 3. **Never hand-edit HTML files.** They're all generated. Edit `site.config.json` or `generate.py`, then run `python3 generate.py`.
 
-4. **The generator `write()` helper guards against empty paths.** Root-level files (`index.html`) have no directory — the helper checks `if d: mkdir(d)` before calling `os.makedirs`. Don't remove that guard.
+4. **Footer year uses `id="year"` in `js/main.js`.** Generator outputs `id="year"` — keep in sync.
 
-5. **FAQ uses `.faq-question` / `.faq-answer` — not `.faq-q` / `.faq-a`.** The generator and CSS both use the long form. `js/main.js` also targets `.faq-question`.
+5. **FAQ uses `.faq-question` / `.faq-answer`.** Generator, CSS, and JS all use these — don't shorten.
 
-6. **Footer year uses `id="yr"` (not `id="year"`).**
+6. **Generator requires `encoding="utf-8"` on both file open calls** (config read + file write). Windows will silently break emoji in JSON otherwise.
 
 ---
 
 ## How to Regenerate
 
 ```bash
-cd "/Users/Zay/Desktop/scripts/Webiste Clone Script/green-empire"
+cd /path/to/green-empire
 python3 generate.py
 ```
 
-Regenerates all 41 pages. Takes ~1 second. Safe to run repeatedly.
+Regenerates all 38 pages. Takes ~1 second. Safe to run repeatedly.
 
 **Add a service:** Add to `site.config.json > services`, regenerate.
 **Add a city:** Add to `site.config.json > serviceAreas`, regenerate.
@@ -228,18 +245,24 @@ Regenerates all 41 pages. Takes ~1 second. Safe to run repeatedly.
 
 ## What Still Needs to Be Done
 
-### Client must provide:
-- [ ] **Formspree ID** — replace `YOURCODE` in `site.config.json > brand.formspreeId`, then regenerate
-- [ ] **Google Maps embed URL** — search "64 Hilton Ave Hempstead NY" in Google Maps → Share → Embed → copy the iframe src → update `site.config.json > brand.googleMapsEmbed`
-- [ ] **Real reviews** — replace the 3 placeholder entries in `site.config.json > reviews`
-- [ ] **Real photos** — replace `images/hero-bg.jpg` with actual Green Empire project photos
+### Blocking / client must provide:
+- [ ] **Formspree ID** — replace `YOURCODE` in `site.config.json > brand.formspreeId`, then regenerate + deploy
+- [ ] **CallRail phone number** — replace `(516) 701-3571` in `site.config.json > brand.phone` + `brand.phoneRaw`, regenerate + deploy
+- [ ] **Real photos** — client's contact is sending project photos; drop into `images/gallery/` and update `site.config.json > gallery[].src` fields, regenerate + deploy
+- [ ] **Form destination decision** — email via Formspree or CRM (Jobber/HubSpot)?
 
 ### Build work remaining:
-- [ ] **Deploy to Netlify** — drag folder to netlify.com/drop for instant staging link to show client
-- [ ] **Handyman site** — waiting on logo, business name, phone, address from client (Sites 2 of 3)
-- [ ] **Plumbing site** — waiting on logo, business name, phone, address from client (Site 3 of 3)
-- [ ] **Chatbot (optional)** — Tidio or Crisp embed can replace the `.chat-btn` scroll handler in `js/main.js`
-- [ ] **Review avatars (optional)** — could show reviewer initials by adding a `data-initials` attribute in the generator and using CSS `content: attr(data-initials)` on the avatar circle
+- [ ] **Blog stub pages** — links to `/blog/landscaping-zones/`, `/blog/outdoor-landscaping-ideas/`, `/blog/spring-lawn-tuneup/` exist on homepage but pages aren't built yet
+- [ ] **Hero team photo** — slot ready at `/images/team-hero.jpg` if client wants crew photo in hero
+- [ ] **Top nav review** — phone number + "Free Estimate" CTA appears 3× on page; consider consolidating
+- [ ] **Logo improvement** — client asked about improving it; direction TBD
+- [ ] **Thank-you page redirect** — add meta refresh back to homepage after form submission
+- [ ] **Image optimization** — `hero-bg.jpg` is ~2.5 MB; compress before launch
+
+### Post-launch:
+- [ ] **Google Search Console** — submit sitemap after launch
+- [ ] **GTM** — client handles this themselves
+- [ ] **Google Business Profile** — already set up; verify hours/address match site
 
 ---
 
@@ -247,26 +270,26 @@ Regenerates all 41 pages. Takes ~1 second. Safe to run repeatedly.
 
 ```
 green-empire/
-├── generate.py          ← Run this to rebuild all pages
-├── site.config.json     ← ALL content lives here
-├── AGENTS.md            ← This file
-├── index.html           ← Generated homepage
-├── request-service.html ← Generated
-├── thank-you.html       ← Generated
+├── generate.py              ← Run this to rebuild all pages
+├── site.config.json         ← ALL content lives here (single source of truth)
+├── AGENTS.md                ← This file
+├── index.html               ← Generated homepage
+├── request-service.html     ← Generated full estimate form
+├── thank-you.html           ← Generated
 ├── css/
-│   └── main.css         ← All styles (~1500 lines, single file)
+│   └── main.css             ← All styles (~1600 lines, single file)
 ├── js/
-│   └── main.js          ← Mobile menu, FAQ accordion, form handler
+│   └── main.js              ← Mobile menu, FAQ accordion, form handler
 ├── images/
-│   ├── logo.png         ← Color logo
-│   ├── logo-dark.png    ← B&W logo (alternate)
-│   └── hero-bg.jpg      ← Hero background
+│   ├── logo.png             ← Color logo
+│   ├── logo-dark.png        ← B&W logo (alternate)
+│   └── hero-bg.jpg          ← Hero background (~2.5 MB, needs compression)
 ├── about/index.html
 ├── faq/index.html
 ├── reviews/index.html
 ├── services/
 │   ├── index.html
-│   └── [10 slugs]/index.html
+│   └── [7 slugs]/index.html
 └── service-areas/
     ├── index.html
     └── [20 slugs]/index.html
