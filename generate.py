@@ -64,7 +64,7 @@ def nav(active=""):
   <nav class="main-nav" aria-label="Main navigation">
     <div class="container nav-inner">
       <a href="/" class="nav-logo">
-        <img src="/images/logo.png" alt="{NAME} logo" height="72" />
+        <img src="/images/logo.png" alt="{NAME} logo" height="96" />
       </a>
       <ul class="nav-links">
         <li class="has-dropdown">
@@ -120,7 +120,7 @@ def footer():
   <div class="footer-main">
     <div class="container footer-grid">
       <div class="footer-brand">
-        <a href="/"><img src="/images/logo.png" alt="{NAME}" height="56" class="footer-logo" /></a>
+        <a href="/"><img src="/images/logo.png" alt="{NAME}" height="72" class="footer-logo" /></a>
         <p>{NAME} — Long Island's landscaping &amp; outdoor renovation specialists. Certified, insured, and locally based in {B['city']}, NY.</p>
         <a href="tel:{PHONE_RAW}" class="footer-phone">{PHONE}</a>
         <p class="footer-address">{ADDRESS}</p>
@@ -384,9 +384,10 @@ def make_homepage():
   <div class="hero-overlay"></div>
   <div class="container">
     <div class="hero-content">
+      <span class="hero-brand-name">{NAME}</span>
       <span class="hero-badge">Hempstead, NY · Nassau &amp; Suffolk Counties</span>
       <h1>{B['tagline']}</h1>
-      <p>Your property deserves an outdoor space built to the same standard as your home. We design and build it — from custom landscapes and patios to driveways and full outdoor living environments.</p>
+      <p>Your outdoor space should be built to the same standard as your home — designed around your vision, not a template. Custom landscapes, patios, pavers, driveways, and outdoor living environments built to last.</p>
       <div class="hero-actions">
         <a href="/request-service.html" class="btn btn-primary btn-lg">Get a Free Estimate</a>
         <a href="tel:{PHONE_RAW}" class="btn btn-outline-white btn-lg">Call {PHONE}</a>
@@ -414,14 +415,14 @@ def make_homepage():
 <section class="booking-section">
   <div class="container booking-wrap">
     <div class="booking-info">
-      <span class="eyebrow">Free Estimates</span>
-      <h2>Get a Quote Today</h2>
-      <p>We respond within 1 business hour. No pressure, no obligation — just honest pricing from Long Island's trusted landscaping team.</p>
+      <span class="eyebrow">Start Your Project</span>
+      <h2>See Your Project Plan</h2>
+      <p>Quick response — typically within 1 hour. No pressure, no obligation. Just honest pricing from a locally owned Long Island team.</p>
       <ul>
-        <li><span class="icon">📞</span><div><strong>Call or text {PHONE}</strong> — we respond within 1 business hour, Mon–Sat 7am–6pm.</div></li>
-        <li><span class="icon">🏡</span><div><strong>Free on-site consultation</strong> — we visit your property and assess the space before quoting anything.</div></li>
-        <li><span class="icon">📋</span><div><strong>Upfront pricing</strong> — detailed quote before any work begins. No surprises.</div></li>
-        <li><span class="icon">✅</span><div><strong>100% satisfaction guarantee</strong> — we're not done until the job meets your standard.</div></li>
+        <li><span class="icon">📞</span><div><strong>Call or text {PHONE}</strong> — Mon–Sat 7am–6pm, quick response guaranteed.</div></li>
+        <li><span class="icon">🏡</span><div><strong>On-site consultation</strong> — your property gets a personal walkthrough before anything is quoted.</div></li>
+        <li><span class="icon">📋</span><div><strong>Upfront pricing</strong> — a detailed quote in hand before any work begins. No surprises.</div></li>
+        <li><span class="icon">✅</span><div><strong>100% satisfaction guarantee</strong> — the job isn't done until it meets your standard.</div></li>
       </ul>
     </div>
     <div class="booking-form-col">
@@ -434,29 +435,29 @@ def make_homepage():
 <section class="section section-light" id="how-it-works">
   <div class="container">
     <div class="section-header">
-      <span class="eyebrow">Simple Process</span>
-      <h2>How It Works</h2>
-      <p>Getting started with Green Empire is easy. Three steps from first contact to a finished outdoor space.</p>
+      <span class="eyebrow">How {NAME} Works</span>
+      <h2>Your Project, Step by Step</h2>
+      <p>Three steps from first contact to a finished outdoor space — designed around your vision, not a template.</p>
     </div>
     <div class="steps-grid">
       <div class="step-card">
         <div class="step-number">1</div>
-        <h3 class="step-title">Request a Free Estimate</h3>
-        <p class="step-desc">Call, text, or fill out the form. We respond within 1 business hour and schedule your free on-site consultation at a time that works for you.</p>
+        <h3 class="step-title">Share Your Vision</h3>
+        <p class="step-desc">Tell us about your project — call, text, or fill out the online form. Quick response, typically within 1 hour, to confirm your consultation.</p>
       </div>
       <div class="step-card">
         <div class="step-number">2</div>
-        <h3 class="step-title">We Visit Your Property</h3>
-        <p class="step-desc">A Green Empire team member visits your property, walks the space with you, and develops a custom plan. You get a detailed quote before any work begins.</p>
+        <h3 class="step-title">Expert Assessment</h3>
+        <p class="step-desc">A {NAME} specialist visits your property, walks the space with you, and listens to your goals. You receive a detailed quote before any commitment.</p>
       </div>
       <div class="step-card">
         <div class="step-number">3</div>
-        <h3 class="step-title">We Get to Work</h3>
-        <p class="step-desc">Once you approve the plan, our crew handles everything — from materials and grading to installation and final cleanup. Your outdoor space, transformed.</p>
+        <h3 class="step-title">Your Custom Build</h3>
+        <p class="step-desc">Once the plan is approved, the crew handles everything — materials, grading, installation, and final cleanup. Your outdoor space, exactly as envisioned.</p>
       </div>
     </div>
     <div class="text-center mt-4">
-      <a href="/request-service.html" class="btn btn-primary">Start With a Free Estimate</a>
+      <a href="/request-service.html" class="btn btn-primary">Schedule Your Consultation</a>
     </div>
   </div>
 </section>
@@ -481,9 +482,9 @@ def make_homepage():
     <img src="/images/Gemini_Generated_Image_xrda4xxrda4xxrda.png" alt="Green Empire Landscaping team — Hempstead, NY" />
   </div>
   <div class="split-content">
-    <span class="eyebrow">Why Green Empire</span>
+    <span class="eyebrow">Why {NAME}</span>
     <h2>Local Crew. Serious Craftsmanship.</h2>
-    <p>We're not a franchise — we're a locally owned team based in Hempstead. Every project gets personal attention from people who take pride in their work.</p>
+    <p>Not a franchise — a locally owned team based in Hempstead. Every project gets personal attention from people who take pride in their work.</p>
     <ul class="check-list">
       <li>Certified &amp; insured in New York State</li>
       <li>Transparent pricing — detailed quote before work begins</li>
@@ -500,7 +501,7 @@ def make_homepage():
   <div class="container">
     <div class="section-header">
       <span class="eyebrow">Reviews</span>
-      <h2>What Long Island Homeowners Are Saying</h2>
+      <h2>See How We've Transformed Local Properties</h2>
     </div>
     <div class="review-grid">
       {review_cards()}
@@ -576,10 +577,10 @@ def make_homepage():
 <!-- CTA -->
 <section class="cta-banner">
   <div class="container">
-    <h2>Ready for a Greener Property?</h2>
+    <h2>Ready to Reimagine Your Outdoor Space?</h2>
     <p>No pressure, no obligation — just honest work and fair pricing from a team that knows Long Island.</p>
     <div class="cta-actions">
-      <a href="/request-service.html" class="btn btn-secondary btn-lg">Get a Free Estimate</a>
+      <a href="/request-service.html" class="btn btn-secondary btn-lg">Request a Design Review</a>
       <a href="tel:{PHONE_RAW}" class="btn btn-outline-white btn-lg">Call {PHONE}</a>
     </div>
   </div>
