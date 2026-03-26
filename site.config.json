@@ -28,7 +28,7 @@
       "name": "Back Yard Landscaping",
       "shortName": "Back Yard",
       "icon": "🌿",
-      "image": "/images/Gemini_Generated_Image_pdxum4pdxum4pdxu.png",
+      "image": "/images/Gemini_Generated_Image_uammkeuammkeuamm.png",
       "description": "Transform your back yard into a private outdoor retreat. Custom plantings, garden beds, grading, and complete landscape renovations tailored to your home and lifestyle.",
       "heroText": "Your back yard should be a space you actually want to spend time in. Green Empire designs and installs custom back yard landscapes for Long Island homeowners — built to look stunning and last for years.",
       "bullets": [
@@ -44,7 +44,7 @@
       "name": "Front Yard Landscaping",
       "shortName": "Front Yard",
       "icon": "🏡",
-      "image": "/images/Gemini_Generated_Image_h76cc0h76cc0h76c.png",
+      "image": "/images/Gemini_Generated_Image_ip9eoyip9eoyip9e.png",
       "description": "Elevate your home's curb appeal with a professionally designed front yard. First impressions that reflect the quality of your property and your standards.",
       "heroText": "Curb appeal is the first thing anyone notices. Green Empire creates polished, well-designed front yard landscapes that make Long Island homes stand out on the block.",
       "bullets": [
@@ -92,7 +92,7 @@
       "name": "Patio Installation",
       "shortName": "Patios",
       "icon": "☀️",
-      "image": "/images/Gemini_Generated_Image_c5v110c5v110c5v1.png",
+      "image": "/images/Gemini_Generated_Image_5uib285uib285uib.png",
       "description": "Custom patio design and installation that extends your living space outdoors. From intimate seating areas to large entertaining spaces — crafted to complement your home.",
       "heroText": "A well-designed patio changes how you experience your property. Green Empire creates custom patios for Long Island homeowners who want beauty, functionality, and durability in equal measure.",
       "bullets": [
@@ -234,16 +234,16 @@
       "icon": "🌿"
     },
     {
-      "src": "",
-      "alt": "Custom patio installation on Long Island",
-      "label": "Patio Installation",
-      "icon": "☀️"
-    },
-    {
-      "src": "",
-      "alt": "Front yard landscaping and curb appeal",
+      "src": "/images/Gemini_Generated_Image_imgt0pimgt0pimgt.png",
+      "alt": "Front yard landscaping with custom beds and paver walkway",
       "label": "Front Yard Landscaping",
       "icon": "🏡"
+    },
+    {
+      "src": "/images/Gemini_Generated_Image_5uib285uib285uib.png",
+      "alt": "Custom patio with outdoor kitchen and fire feature",
+      "label": "Patio & Outdoor Kitchen",
+      "icon": "☀️"
     }
   ]
 }

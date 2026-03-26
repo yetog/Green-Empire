@@ -64,7 +64,7 @@ def nav(active=""):
   <nav class="main-nav" aria-label="Main navigation">
     <div class="container nav-inner">
       <a href="/" class="nav-logo">
-        <img src="/images/logo.png" alt="{NAME} logo" height="64" />
+        <img src="/images/logo.png" alt="{NAME} logo" height="72" />
       </a>
       <ul class="nav-links">
         <li class="has-dropdown">
@@ -377,13 +377,13 @@ def make_homepage():
 
 <!-- HERO -->
 <section class="hero">
-  <img class="hero-bg" src="/images/hero-bg.jpg" alt="Beautiful Long Island backyard landscaped by {NAME}" />
+  <img class="hero-bg" src="/images/Gemini_Generated_Image_imgt0pimgt0pimgt.png" alt="Beautiful Long Island front yard landscaped by {NAME}" />
   <div class="hero-overlay"></div>
   <div class="container">
     <div class="hero-content">
       <span class="hero-badge">Hempstead, NY · Nassau &amp; Suffolk Counties</span>
       <h1>{B['tagline']}</h1>
-      <p>Trust Green Empire's local experts to renovate and transform your outdoor space — from custom landscapes to patios, pavers, and outdoor living environments.</p>
+      <p>Your property deserves an outdoor space built to the same standard as your home. We design and build it — from custom landscapes and patios to driveways and full outdoor living environments.</p>
       <div class="hero-actions">
         <a href="/request-service.html" class="btn btn-primary btn-lg">Get a Free Estimate</a>
         <a href="tel:{PHONE_RAW}" class="btn btn-outline-white btn-lg">Call {PHONE}</a>
@@ -415,10 +415,10 @@ def make_homepage():
       <h2>Get a Quote Today</h2>
       <p>We respond within 1 business hour. No pressure, no obligation — just honest pricing from Long Island's trusted landscaping team.</p>
       <ul>
-        <li><span class="icon">📞</span><div><strong>Call or text:</strong> <a href="tel:{PHONE_RAW}">{PHONE}</a> — we respond within 1 business hour.</div></li>
-        <li><span class="icon">📍</span><div><strong>Based in Hempstead, NY</strong> — serving Nassau &amp; Suffolk Counties.</div></li>
-        <li><span class="icon">🛡️</span><div><strong>Certified &amp; Insured</strong> in New York State.</div></li>
-        <li><span class="icon">⭐</span><div><strong>5-star rated</strong> by Long Island homeowners.</div></li>
+        <li><span class="icon">📞</span><div><strong>Call or text {PHONE}</strong> — we respond within 1 business hour, Mon–Sat 7am–6pm.</div></li>
+        <li><span class="icon">🏡</span><div><strong>Free on-site consultation</strong> — we visit your property and assess the space before quoting anything.</div></li>
+        <li><span class="icon">📋</span><div><strong>Upfront pricing</strong> — detailed quote before any work begins. No surprises.</div></li>
+        <li><span class="icon">✅</span><div><strong>100% satisfaction guarantee</strong> — we're not done until the job meets your standard.</div></li>
       </ul>
     </div>
     <div class="booking-form-col">
@@ -475,17 +475,16 @@ def make_homepage():
 <!-- WHY US -->
 <section class="split-section">
   <div class="split-img">
-    <img src="/images/Gemini_Generated_Image_pdxum4pdxum4pdxu.png" alt="Green Empire Landscaping completed project on Long Island" />
+    <img src="/images/Gemini_Generated_Image_xrda4xxrda4xxrda.png" alt="Green Empire Landscaping team — Hempstead, NY" />
   </div>
   <div class="split-content">
     <span class="eyebrow">Why Green Empire</span>
-    <h2>{B['city']}'s Most Trusted Landscaping Team</h2>
-    <p>We're not a national chain — we're your neighbors. Based at 64 Hilton Ave in Hempstead, NY, we know Long Island properties and what it takes to make them stand out.</p>
+    <h2>Local Crew. Serious Craftsmanship.</h2>
+    <p>We're not a franchise — we're a locally owned team based in Hempstead. Every project gets personal attention from people who take pride in their work.</p>
     <ul class="check-list">
-      <li>Fully certified and insured in New York State</li>
-      <li>Transparent, upfront pricing — no hidden fees</li>
-      <li>Every project starts with a free on-site consultation</li>
-      <li>Custom designs built for your property and vision</li>
+      <li>Certified &amp; insured in New York State</li>
+      <li>Transparent pricing — detailed quote before work begins</li>
+      <li>Custom designs built around your property and budget</li>
       <li>100% satisfaction guarantee on every job</li>
     </ul>
     <a href="/about/" class="btn btn-primary">Meet Our Team</a>
@@ -575,7 +574,7 @@ def make_homepage():
 <section class="cta-banner">
   <div class="container">
     <h2>Ready for a Greener Property?</h2>
-    <p>Call or request online — we respond within 1 business hour. Free, no-obligation estimates.</p>
+    <p>No pressure, no obligation — just honest work and fair pricing from a team that knows Long Island.</p>
     <div class="cta-actions">
       <a href="/request-service.html" class="btn btn-secondary btn-lg">Get a Free Estimate</a>
       <a href="tel:{PHONE_RAW}" class="btn btn-outline-white btn-lg">Call {PHONE}</a>
