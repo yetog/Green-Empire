@@ -82,7 +82,7 @@ def nav(active=""):
       </ul>
       <div class="nav-cta">
         <a href="tel:{PHONE_RAW}" class="nav-phone">{PHONE}</a>
-        <a href="/request-service.html" class="btn btn-primary btn-sm">Free Estimate</a>
+        <a href="/request-service.html" class="btn btn-primary btn-sm">Get Started</a>
       </div>
       <button class="hamburger" id="hamburger" aria-label="Open menu">
         <span></span><span></span><span></span>
@@ -192,7 +192,7 @@ def booking_form(compact=False):
         return f"""
 <div class="booking-card">
   <div class="booking-card-header">
-    <h3>Get a Free Estimate</h3>
+    <h3>Get Your Custom Quote</h3>
     <p>Response within 1 business hour</p>
   </div>
   <form action="https://formspree.io/f/{B['formspreeId']}" method="POST" class="booking-form">
