@@ -70,7 +70,7 @@ def nav(active=""):
         <li class="has-dropdown">
           <a href="/services/" class="{'active' if active=='services' else ''}">Services ▾</a>
           <ul class="dropdown">
-            <li><span class="dropdown-label">Residential &amp; Commercial</span></li>
+            <li><span class="dropdown-label">Our Services</span></li>
             {service_links}
             <li><a href="/services/" class="dropdown-all">View All Services →</a></li>
           </ul>
@@ -149,7 +149,7 @@ def footer():
   </div>
   <div class="footer-bottom">
     <div class="container footer-bottom-inner">
-      <span>&copy; <span id="yr"></span> {NAME}. All rights reserved. Each location independently owned and operated.</span>
+      <span>&copy; <span id="yr"></span> {NAME}. All rights reserved.</span>
       <div class="footer-legal">
         <a href="/privacy-policy.html">Privacy Policy</a>
         <a href="/terms.html">Terms of Use</a>
@@ -242,12 +242,19 @@ def review_cards(city=None):
     for r in REVIEWS:
         loc = city + ", NY" if city else r["location"]
         stars = "★" * r["rating"]
+        parts = r["name"].split()
+        initials = (parts[0][0] + parts[-1][0]).upper() if len(parts) > 1 else parts[0][:2].upper()
         cards.append(f"""
     <div class="review-card">
       <div class="review-stars">{stars}</div>
       <p class="review-text">"{r['text']}"</p>
-      <div class="review-author">{r['name']}</div>
-      <div class="review-location">{loc}</div>
+      <div class="review-footer">
+        <div class="review-avatar">{initials}</div>
+        <div>
+          <div class="review-author">{r['name']}</div>
+          <div class="review-location">{loc}</div>
+        </div>
+      </div>
     </div>""")
     return "\n".join(cards)
 
@@ -461,21 +468,6 @@ def make_homepage():
     </div>
     <div class="service-grid">
       {service_cards}
-    </div>
-  </div>
-</section>
-
-<!-- HOW WE HELP -->
-<section class="section how-we-help">
-  <div class="container">
-    <div class="section-header">
-      <span class="eyebrow">Our Approach</span>
-      <h2>How Green Empire Can Help You</h2>
-    </div>
-    <div class="how-we-help-content">
-      <p>Green Empire is a full-service landscaping and outdoor renovation company based in Hempstead, NY. We specialize in transforming Long Island properties — from front and back yard redesigns to custom patios, paver systems, driveways, and complete outdoor living environments. Every project is designed and built to match your vision.</p>
-      <p>We serve Nassau and Suffolk Counties and take on a limited number of projects at a time to ensure every client gets the attention they deserve. Contact us for a free on-site consultation — no pressure, no obligation.</p>
-      <a href="/request-service.html" class="btn btn-primary">Get a Free Consultation</a>
     </div>
   </div>
 </section>
@@ -1183,6 +1175,126 @@ def make_thank_you():
 
 
 # ─────────────────────────────────────────────────────────
+# PAGES: Blog articles
+# ─────────────────────────────────────────────────────────
+
+def make_blog_pages():
+    posts = [
+        {
+            "slug": "landscaping-zones",
+            "title": "What Landscaping Zone Are You in — and Why Does It Matter?",
+            "desc": "Learn about USDA hardiness zones and how to choose plants that thrive on Long Island. Tips from Green Empire Landscaping in Hempstead, NY.",
+            "body": f"""
+<p>If your plants keep dying or struggling through Long Island winters, hardiness zones might be the answer. Long Island falls primarily in <strong>USDA Zone 7a–7b</strong> — which means cold winters (as low as 0–10°F) and warm, humid summers. Knowing your zone changes what you plant and when you plant it.</p>
+<h2>What Zone Is Long Island?</h2>
+<p>Most of Nassau and Suffolk Counties fall in Zone 7a or 7b. The North Shore tends to be slightly cooler; the South Shore and coastal areas are a bit warmer. This matters for anything you're keeping year-round — trees, shrubs, perennials, and ornamental grasses all have zone requirements.</p>
+<h2>Best Plants for Long Island Landscapes</h2>
+<ul>
+  <li><strong>Ornamental grasses</strong> — drought-tolerant and low-maintenance in Zone 7</li>
+  <li><strong>Knockout roses</strong> — disease-resistant and reliable in this climate</li>
+  <li><strong>Boxwood</strong> — classic hedge material that handles Long Island winters well</li>
+  <li><strong>Japanese maples</strong> — thrive in Zone 7, stunning fall color</li>
+  <li><strong>Blue Star juniper</strong> — evergreen, low-maintenance, great for borders</li>
+</ul>
+<h2>What Our Team Recommends</h2>
+<p>At {NAME}, every landscape design starts with a site visit where we assess your soil, sun exposure, drainage, and existing plantings. We only recommend plants we know will thrive on Long Island — not whatever looks good at a nursery in the moment.</p>
+<p>Want a plant selection that will actually last? <a href="/request-service.html">Request a free consultation</a> and we'll walk your property and give you honest recommendations.</p>"""
+        },
+        {
+            "slug": "outdoor-landscaping-ideas",
+            "title": "Outdoor Landscaping Ideas for Every Budget",
+            "desc": "Creative outdoor renovation ideas for Long Island homeowners — from patio builds to full landscape transformations. Tips from Green Empire Landscaping.",
+            "body": f"""
+<p>You don't need to spend a fortune to dramatically improve your outdoor space. Here are ideas across every budget range — from simple weekend projects to full outdoor renovations.</p>
+<h2>Under $2,000 — Quick Impact</h2>
+<ul>
+  <li><strong>Define your garden beds</strong> — fresh mulch and clean edge lines transform the look of any yard instantly</li>
+  <li><strong>Add a focal point</strong> — a single ornamental tree, a decorative boulder, or a simple planting cluster draws the eye and anchors the space</li>
+  <li><strong>Upgrade your walkway edging</strong> — simple steel or stone edging along a path adds structure without major cost</li>
+</ul>
+<h2>$2,000–$10,000 — Real Transformation</h2>
+<ul>
+  <li><strong>Paver patio</strong> — a modest 200–300 sq ft patio adds usable outdoor living space and significant property value</li>
+  <li><strong>Front yard redesign</strong> — new plantings, bed design, and lawn restoration can completely change your curb appeal</li>
+  <li><strong>Privacy plantings</strong> — a row of arborvitae or holly creates a natural privacy screen that improves with age</li>
+</ul>
+<h2>$10,000+ — Full Outdoor Renovation</h2>
+<ul>
+  <li><strong>Complete back yard overhaul</strong> — patio, garden beds, lawn restoration, and plantings as a cohesive design</li>
+  <li><strong>Outdoor living environment</strong> — pergola, fire feature, outdoor kitchen, and entertaining space</li>
+  <li><strong>Paver driveway</strong> — one of the highest ROI upgrades for Long Island homes</li>
+</ul>
+<p>Not sure what fits your budget and property? {NAME} offers free on-site consultations where we can help you prioritize and plan. <a href="/request-service.html">Book yours today.</a></p>"""
+        },
+        {
+            "slug": "spring-lawn-tuneup",
+            "title": "Why You Should Schedule a Spring Tune-Up for Your Landscape",
+            "desc": "Spring is the best time to set your Long Island landscape up for the season. Here's what a professional spring tune-up includes and why it matters.",
+            "body": f"""
+<p>Winter on Long Island is tough on landscapes. Frost heaving, salt spray from roads, compacted soil, and dormant damage all add up. A professional spring tune-up addresses all of it before the growing season starts — and the difference shows all year.</p>
+<h2>What a Spring Landscape Tune-Up Includes</h2>
+<ul>
+  <li><strong>Cleanup</strong> — removal of winter debris, dead material, and fallen branches</li>
+  <li><strong>Bed edging and reshaping</strong> — clean lines define the space and prepare beds for new growth</li>
+  <li><strong>Mulch application</strong> — fresh mulch retains moisture, suppresses weeds, and gives beds a finished look</li>
+  <li><strong>Pruning</strong> — late-winter pruning of ornamentals and shrubs promotes healthy growth and shape</li>
+  <li><strong>Lawn assessment</strong> — identify bare or damaged spots early and address them before summer heat sets in</li>
+</ul>
+<h2>Why Timing Matters</h2>
+<p>The window for effective spring prep on Long Island is roughly <strong>late March through early May</strong>. Too early and the ground is still frozen; too late and fast-growing weeds get ahead of you. Getting on the schedule early means your property looks great from the first warm weekend.</p>
+<h2>Book Before the Rush</h2>
+<p>Spring is our busiest season. If you want to get on the schedule, reach out in late winter — spots fill up fast. <a href="/request-service.html">Request a free estimate</a> and we'll assess your property and put together a spring plan.</p>"""
+        }
+    ]
+    for post in posts:
+        bc, bc_schema = breadcrumbs([("Home", "/"), ("Resources", None), (post["title"][:40] + "…", None)])
+        content = f"""{head(
+            f"{post['title']} | {NAME}",
+            post["desc"],
+            f"/blog/{post['slug']}/",
+            bc_schema
+        )}
+{nav()}{bc}
+<section class="page-hero">
+  <div class="container">
+    <h1>{post['title']}</h1>
+  </div>
+</section>
+<section class="section">
+  <div class="container blog-post-layout">
+    <article class="blog-post-body">
+      {post['body']}
+      <div class="blog-post-cta">
+        <h3>Ready to Transform Your Outdoor Space?</h3>
+        <p>{NAME} serves all of Long Island — Nassau &amp; Suffolk Counties. Free estimates, no obligation.</p>
+        <a href="/request-service.html" class="btn btn-primary">Get a Free Estimate</a>
+      </div>
+    </article>
+    <aside class="blog-post-sidebar">
+      <div class="booking-card">
+        <div class="booking-card-header">
+          <h3>Free Estimate</h3>
+          <p>Response within 1 business hour</p>
+        </div>
+        <div style="padding:20px">
+          <p style="font-size:.9rem;color:var(--gray-dark);margin-bottom:16px">Ready to get started? Call or text us and we'll schedule a free on-site consultation.</p>
+          <a href="tel:{PHONE_RAW}" class="btn btn-primary btn-block">Call {PHONE}</a>
+          <a href="/request-service.html" class="btn btn-outline btn-block" style="margin-top:10px">Request Online</a>
+        </div>
+      </div>
+      <div class="sidebar-services">
+        <h4>Our Services</h4>
+        <ul>{"".join(f'<li><a href="/services/{s["slug"]}/">{s["name"]}</a></li>' for s in SERVICES)}</ul>
+      </div>
+    </aside>
+  </div>
+</section>
+{footer()}
+</body></html>"""
+        write(f"blog/{post['slug']}/index.html", content)
+
+
+# ─────────────────────────────────────────────────────────
 # PAGE: Privacy Policy & Terms (boilerplate)
 # ─────────────────────────────────────────────────────────
 
@@ -1219,6 +1331,7 @@ make_faq()
 make_reviews()
 make_request_service()
 make_thank_you()
+make_blog_pages()
 make_legal()
 
 print(f"[OK] {len(pages_created)} pages generated:\n")
