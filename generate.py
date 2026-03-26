@@ -272,7 +272,10 @@ def breadcrumbs(crumbs):
             items.append(f'<li><a href="{url}">{label}</a></li>')
         else:
             items.append(f'<li>{label}</li>')
-        schema_items.append(f'{{"@type":"ListItem","position":{i+1},"name":"{label}","item":"https://{B["domain"]}{url or ""}"}}'  )
+        if url:
+            schema_items.append(f'{{"@type":"ListItem","position":{i+1},"name":"{label}","item":"https://{B["domain"]}{url}"}}')
+        else:
+            schema_items.append(f'{{"@type":"ListItem","position":{i+1},"name":"{label}"}}')
     schema = f"""<script type="application/ld+json">
   {{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{",".join(schema_items)}]}}
   </script>"""
