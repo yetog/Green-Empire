@@ -1,3 +1,5 @@
+if (typeof lucide !== 'undefined') lucide.createIcons();
+
 document.addEventListener('DOMContentLoaded', () => {
 
   // ── Mobile Menu ────────────────────────────────────────

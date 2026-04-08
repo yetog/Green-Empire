@@ -26,6 +26,12 @@
   --font:         'Inter', system-ui, -apple-system, sans-serif;
 }
 
+/* ── Lucide Icons ─────────────────────────────────────────── */
+[data-lucide] { display: inline-block; vertical-align: middle; stroke-width: 2; }
+.hero-trust [data-lucide] { width: 15px; height: 15px; }
+.booking-info ul li .icon [data-lucide] { width: 20px; height: 20px; stroke: #fff; }
+.icon [data-lucide] { width: 20px; height: 20px; stroke: #fff; }
+
 html { scroll-behavior: smooth; }
 body {
   font-family: var(--font);
