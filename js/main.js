@@ -59,8 +59,8 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   });
 
-  // ── Booking Form (async Formspree) ─────────────────────
-  document.querySelectorAll('form[id="booking-form"]').forEach(form => {
+  // ── Booking Form (async → Zapier webhook) ─────────────
+  document.querySelectorAll('form.booking-form').forEach(form => {
     form.addEventListener('submit', async (e) => {
       e.preventDefault();
       const btn = form.querySelector('button[type="submit"]');
@@ -71,8 +71,7 @@ document.addEventListener('DOMContentLoaded', () => {
       try {
         const res = await fetch(form.action, {
           method: 'POST',
-          body: new FormData(form),
-          headers: { Accept: 'application/json' }
+          body: new FormData(form)
         });
         if (res.ok) {
           window.location.href = '/thank-you.html';
@@ -80,7 +79,7 @@ document.addEventListener('DOMContentLoaded', () => {
           throw new Error();
         }
       } catch {
-        btn.textContent = 'Error — call us at ' + (form.dataset.phone || '');
+        btn.textContent = 'Error — call us at (516) 701-3571';
         btn.style.background = '#dc2626';
         setTimeout(() => {
           btn.textContent = orig;

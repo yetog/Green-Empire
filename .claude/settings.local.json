@@ -6,7 +6,9 @@
       "Bash(curl -s -o /dev/null -w \"%{http_code}\" http://localhost:8080/)",
       "Bash(cd:*)",
       "WebFetch(domain:zaylegend.com)",
-      "Bash(curl:*)"
+      "Bash(curl:*)",
+      "Bash(ssh:*)",
+      "Bash(python -c ':*)"
     ]
   }
 }
