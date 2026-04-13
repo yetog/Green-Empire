@@ -81,7 +81,7 @@ document.addEventListener('DOMContentLoaded', () => {
           throw new Error();
         }
       } catch {
-        btn.textContent = 'Error — call us at (516) 701-3571';
+        btn.textContent = 'Error — call us at (516) 774-2956';
         btn.style.background = '#dc2626';
         setTimeout(() => {
           btn.textContent = orig;
