@@ -8,7 +8,9 @@
       "WebFetch(domain:zaylegend.com)",
       "Bash(curl:*)",
       "Bash(ssh:*)",
-      "Bash(python -c ':*)"
+      "Bash(python -c ':*)",
+      "Bash(gh issue:*)",
+      "Bash(xargs sed:*)"
     ]
   }
 }
