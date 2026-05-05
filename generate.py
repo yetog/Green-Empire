@@ -67,15 +67,6 @@ def nav(active=""):
     )
     return f"""
 <header class="site-header">
-  <div class="top-bar">
-    <div class="container">
-      <span>Locally owned · {B['city']}, {B['state']} {B['zip']}</span>
-      <div class="top-bar-right">
-        <a href="tel:{PHONE_RAW}">📞 {PHONE}</a>
-        <a href="/request-service.html" class="top-bar-cta">Free Estimate</a>
-      </div>
-    </div>
-  </div>
   <nav class="main-nav" aria-label="Main navigation">
     <div class="container nav-inner">
       <a href="/" class="nav-logo">

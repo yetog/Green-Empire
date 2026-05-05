@@ -32,7 +32,10 @@
       "Read(//tmp/**)",
       "Bash(python \"C:/Users/iyoungburke/Desktop/Green-Empire-Builders/generate.py\" --version)",
       "WebFetch(domain:www.greenempireland.com)",
-      "WebFetch(domain:www.greenempirebuild.com)"
+      "WebFetch(domain:www.greenempirebuild.com)",
+      "Bash(git pull *)",
+      "Bash(git stash *)",
+      "WebFetch(domain:greenempireland.com)"
     ]
   }
 }
