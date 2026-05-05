@@ -27,6 +27,43 @@ SECONDARY = B["secondaryColor"]
 WEBHOOK = B["zapierWebhook"]
 FONT    = B.get("font", "Inter")
 
+# ── Lucide icon helpers ───────────────────────────────────
+def _svg(paths, size=16):
+    return (f'<svg xmlns="http://www.w3.org/2000/svg" width="{size}" height="{size}"'
+            f' viewBox="0 0 24 24" fill="none" stroke="currentColor"'
+            f' stroke-width="2" stroke-linecap="round" stroke-linejoin="round"'
+            f' aria-hidden="true">{paths}</svg>')
+
+ICON = {
+    'phone':    _svg("<path d='M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.1 12 19.79 19.79 0 0 1 1.1 3.38 2 2 0 0 1 3.08 1h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L7.09 8.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 21 16z'/>"),
+    'pin':      _svg("<path d='M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z'/><circle cx='12' cy='10' r='3'/>"),
+    'clock':    _svg("<circle cx='12' cy='12' r='10'/><polyline points='12 6 12 12 16 14'/>"),
+    'star':     _svg("<polygon points='12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2'/>"),
+    'shield':   _svg("<path d='M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z'/><path d='m9 12 2 2 4-4'/>"),
+    'home':     _svg("<path d='m3 9 9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z'/><polyline points='9 22 9 12 15 12 15 22'/>"),
+    'dollar':   _svg("<line x1='12' x2='12' y1='2' y2='22'/><path d='M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6'/>"),
+    'check':    _svg("<polyline points='20 6 9 17 4 12'/>"),
+    'check-circle': _svg("<path d='M22 11.08V12a10 10 0 1 1-5.93-9.14'/><polyline points='22 4 12 14.01 9 11.01'/>"),
+    'clipboard':_svg("<rect width='8' height='4' x='8' y='2' rx='1'/><path d='M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2'/><path d='M12 11h4'/><path d='M12 16h4'/>"),
+    'camera':   _svg("<path d='M14.5 4h-5L7 7H4a2 2 0 0 0-2 2v9a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V9a2 2 0 0 0-2-2h-3z'/><circle cx='12' cy='13' r='3'/>"),
+    'timer':    _svg("<line x1='10' x2='14' y1='2' y2='2'/><line x1='12' x2='15' y1='14' y2='11'/><circle cx='12' cy='14' r='8'/>"),
+    'ruler':    _svg("<path d='M21.3 8.7 8.7 21.3c-1 1-2.5 1-3.4 0l-2.6-2.6c-1-1-1-2.5 0-3.4L15.3 2.7c1-1 2.5-1 3.4 0l2.6 2.6c1 1 1 2.5 0 3.4Z'/><path d='m7.5 10.5 2 2'/><path d='m10.5 7.5 2 2'/><path d='m13.5 4.5 2 2'/><path d='m4.5 13.5 2 2'/>"),
+    'phone_lg': _svg("<path d='M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.1 12 19.79 19.79 0 0 1 1.1 3.38 2 2 0 0 1 3.08 1h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L7.09 8.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 21 16z'/>", 24),
+    'pin_lg':   _svg("<path d='M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z'/><circle cx='12' cy='10' r='3'/>", 24),
+    'clock_lg': _svg("<circle cx='12' cy='12' r='10'/><polyline points='12 6 12 12 16 14'/>", 24),
+    'timer_lg': _svg("<line x1='10' x2='14' y1='2' y2='2'/><line x1='12' x2='15' y1='14' y2='11'/><circle cx='12' cy='14' r='8'/>", 24),
+    'star_lg':  _svg("<polygon points='12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2'/>", 20),
+    'dollar_lg':_svg("<line x1='12' x2='12' y1='2' y2='22'/><path d='M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6'/>", 24),
+    'ruler_lg': _svg("<path d='M21.3 8.7 8.7 21.3c-1 1-2.5 1-3.4 0l-2.6-2.6c-1-1-1-2.5 0-3.4L15.3 2.7c1-1 2.5-1 3.4 0l2.6 2.6c1 1 1 2.5 0 3.4Z'/><path d='m7.5 10.5 2 2'/><path d='m10.5 7.5 2 2'/><path d='m13.5 4.5 2 2'/><path d='m4.5 13.5 2 2'/>", 24),
+    'home_lg':  _svg("<path d='m3 9 9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z'/><polyline points='9 22 9 12 15 12 15 22'/>", 24),
+    'shield_lg':_svg("<path d='M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z'/><path d='m9 12 2 2 4-4'/>", 24),
+    'clipboard_lg': _svg("<rect width='8' height='4' x='8' y='2' rx='1'/><path d='M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2'/><path d='M12 11h4'/><path d='M12 16h4'/>", 24),
+    'check_lg': _svg("<polyline points='20 6 9 17 4 12'/>", 20),
+    'check-circle_lg': _svg("<path d='M22 11.08V12a10 10 0 1 1-5.93-9.14'/><polyline points='22 4 12 14.01 9 11.01'/>", 24),
+}
+# ─────────────────────────────────────────────────────────
+
+
 pages_created = []
 pages_failed = []
 
@@ -248,7 +285,7 @@ def review_cards(city=None):
     cards = []
     for r in REVIEWS:
         loc = city + ", NY" if city else r["location"]
-        stars = "★" * r["rating"]
+        stars = ICON["star"] * r["rating"]
         parts = r["name"].split()
         initials = (parts[0][0] + parts[-1][0]).upper() if len(parts) > 1 else parts[0][:2].upper()
         cards.append(f"""
@@ -330,7 +367,7 @@ def gallery_section():
       </figure>""")
         else:
             items.append(f"""      <div class="gallery-item gallery-placeholder-slot">
-        <span class="gallery-slot-icon">{item.get('icon','📷')}</span>
+        <span class="gallery-slot-icon">{item.get('icon','')}</span>
         <span class="gallery-slot-label">{item['label']}</span>
       </div>""")
     items_html = "\n".join(items)
@@ -465,10 +502,10 @@ def make_homepage():
       <h2>See Your Project Plan</h2>
       <p>Quick response — typically within 1 hour. No pressure, no obligation. Just honest pricing from a locally owned Long Island team.</p>
       <ul>
-        <li><span class="icon">📞</span><div><strong>Call or text {PHONE}</strong> — Mon–Sat 7am–6pm, quick response guaranteed.</div></li>
-        <li><span class="icon">🏡</span><div><strong>On-site consultation</strong> — your property gets a personal walkthrough before anything is quoted.</div></li>
-        <li><span class="icon">📋</span><div><strong>Upfront pricing</strong> — a detailed quote in hand before any work begins. No surprises.</div></li>
-        <li><span class="icon">✅</span><div><strong>100% satisfaction guarantee</strong> — the job isn't done until it meets your standard.</div></li>
+        <li><span class="icon">{ICON["phone"]}</span><div><strong>Call or text {PHONE}</strong> — Mon–Sat 7am–6pm, quick response guaranteed.</div></li>
+        <li><span class="icon">{ICON["home"]}</span><div><strong>On-site consultation</strong> — your property gets a personal walkthrough before anything is quoted.</div></li>
+        <li><span class="icon">{ICON["clipboard"]}</span><div><strong>Upfront pricing</strong> — a detailed quote in hand before any work begins. No surprises.</div></li>
+        <li><span class="icon">{ICON["check-circle"]}</span><div><strong>100% satisfaction guarantee</strong> — the job isn't done until it meets your standard.</div></li>
       </ul>
     </div>
     <div class="booking-form-col">
@@ -691,9 +728,9 @@ def make_service_page(s):
       {booking_form(compact=True)}
       <div class="sidebar-contact">
         <h4>Contact Us</h4>
-        <p>📞 <a href="tel:{PHONE_RAW}">{PHONE}</a></p>
-        <p>📍 {ADDRESS}</p>
-        <p>🕐 {B['hours']}</p>
+        <p>{ICON["phone"]} <a href="tel:{PHONE_RAW}">{PHONE}</a></p>
+        <p>{ICON["pin"]} {ADDRESS}</p>
+        <p>{ICON['clock']} {B['hours']}</p>
       </div>
     </aside>
   </div>
@@ -845,9 +882,9 @@ def make_city_page(area):
       {booking_form(compact=True)}
       <div class="sidebar-contact">
         <h4>Contact Us</h4>
-        <p>📞 <a href="tel:{PHONE_RAW}">{PHONE}</a></p>
-        <p>📍 {ADDRESS}</p>
-        <p>🕐 {B['hours']}</p>
+        <p>{ICON["phone"]} <a href="tel:{PHONE_RAW}">{PHONE}</a></p>
+        <p>{ICON["pin"]} {ADDRESS}</p>
+        <p>{ICON['clock']} {B['hours']}</p>
       </div>
     </aside>
   </div>
@@ -975,10 +1012,10 @@ def make_about():
       <h2>The Green Empire Difference</h2>
     </div>
     <div class="features-grid">
-      <div class="feature-card"><div class="feature-icon">📍</div><h3>Local Expertise</h3><p>We know Long Island's soil, climate, and neighborhoods. Our recommendations are built for this area.</p></div>
-      <div class="feature-card"><div class="feature-icon">💰</div><h3>Transparent Pricing</h3><p>You'll always know what you're paying before we start. No surprises, no hidden fees.</p></div>
-      <div class="feature-card"><div class="feature-icon">⭐</div><h3>Satisfaction Guaranteed</h3><p>Not happy? We'll make it right. Every service is backed by our 100% guarantee.</p></div>
-      <div class="feature-card"><div class="feature-icon">📐</div><h3>Custom Designs</h3><p>Every project is designed specifically for your property — no templates, no shortcuts, no one-size-fits-all solutions.</p></div>
+      <div class="feature-card">{ICON["pin_lg"]}<h3>Local Expertise</h3><p>We know Long Island's soil, climate, and neighborhoods. Our recommendations are built for this area.</p></div>
+      <div class="feature-card">{ICON["dollar_lg"]}<h3>Transparent Pricing</h3><p>You'll always know what you're paying before we start. No surprises, no hidden fees.</p></div>
+      <div class="feature-card">{ICON["star_lg"]}<h3>Satisfaction Guaranteed</h3><p>Not happy? We'll make it right. Every service is backed by our 100% guarantee.</p></div>
+      <div class="feature-card">{ICON["ruler_lg"]}<h3>Custom Designs</h3><p>Every project is designed specifically for your property — no templates, no shortcuts, no one-size-fits-all solutions.</p></div>
     </div>
   </div>
 </section>
@@ -1055,7 +1092,7 @@ def make_faq():
 def make_reviews():
     all_reviews = "\n".join(f"""
     <div class="review-card">
-      <div class="review-stars">{"★" * r['rating']}</div>
+      <div class="review-stars">{ICON["star"] * r['rating']}</div>
       <p class="review-text">"{r['text']}"</p>
       <div class="review-author">{r['name']}</div>
       <div class="review-location">{r['location']}</div>
@@ -1125,9 +1162,9 @@ def make_request_service():
         <h2>Let's Talk About Your Project</h2>
         <p>Whether it's a quick lawn mowing quote or a full landscape renovation, we're here to help. Tell us about your project and we'll provide a free, transparent estimate.</p>
         <div class="features-grid" style="margin-top:2rem">
-          <div class="feature-card"><div class="feature-icon">📞</div><h3>Call or Text</h3><p><a href="tel:{PHONE_RAW}">{PHONE}</a><br/>Mon–Sat, 7am–6pm</p></div>
-          <div class="feature-card"><div class="feature-icon">📍</div><h3>Our Location</h3><p>{ADDRESS}</p></div>
-          <div class="feature-card"><div class="feature-icon">⏱️</div><h3>Response Time</h3><p>Within 1 business hour</p></div>
+          <div class="feature-card">{ICON["phone_lg"]}<h3>Call or Text</h3><p><a href="tel:{PHONE_RAW}">{PHONE}</a><br/>Mon–Sat, 7am–6pm</p></div>
+          <div class="feature-card">{ICON["pin_lg"]}<h3>Our Location</h3><p>{ADDRESS}</p></div>
+          <div class="feature-card">{ICON["timer_lg"]}<h3>Response Time</h3><p>Within 1 business hour</p></div>
         </div>
         <div style="margin-top:2rem;border-radius:8px;overflow:hidden">
           <iframe src="{B['googleMapsEmbed']}" width="100%" height="300" style="border:0;display:block" allowfullscreen loading="lazy" title="{NAME} Location Map"></iframe>
