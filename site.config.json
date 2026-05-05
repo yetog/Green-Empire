@@ -29,7 +29,13 @@
     "secondaryColor": "#6aad32",
     "secondaryDark": "#5a9e2f",
     "industry": "Landscaping",
-    "industryLower": "landscaping"
+    "industryLower": "landscaping",
+    "heroSlides": [
+      "/images/hero-bg.jpg",
+      "/images/hero-slides/slide-2.jpg",
+      "/images/hero-slides/slide-3.jpg",
+      "/images/hero-slides/slide-4.jpg"
+    ]
   },
   "services": [
     {

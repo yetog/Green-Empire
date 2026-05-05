@@ -392,6 +392,45 @@ nav.breadcrumbs {
   object-position: center;
   opacity: .45;
 }
+.hero-slides {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+}
+.hero-slide {
+  position: absolute;
+  inset: 0;
+  background-size: cover;
+  background-position: center;
+  opacity: 0;
+  transition: opacity 1.2s ease;
+}
+.hero-slide.active { opacity: .55; }
+.hero-slide-dots {
+  position: absolute;
+  bottom: 28px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  gap: 10px;
+  z-index: 10;
+}
+.hero-dot {
+  width: 9px;
+  height: 9px;
+  border-radius: 50%;
+  border: 1.5px solid rgba(255,255,255,.5);
+  background: transparent;
+  cursor: pointer;
+  transition: background .25s, border-color .25s, transform .25s;
+  padding: 0;
+}
+.hero-dot.active {
+  background: #fff;
+  border-color: #fff;
+  transform: scale(1.2);
+}
+.hero-dot:hover:not(.active) { border-color: rgba(255,255,255,.85); }
 .hero-overlay {
   position: absolute;
   inset: 0;

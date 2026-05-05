@@ -386,6 +386,16 @@ def make_homepage():
       <div class="faq-answer"><p>{f['a']}</p></div>
     </div>""" for f in FAQS[:5])
 
+    slides = B.get('heroSlides', ['/images/hero-bg.jpg'])
+    slide_divs = "\n    ".join(
+        f'<div class="hero-slide{" active" if i == 0 else ""}" style="background-image:url(\'{s}\')"></div>'
+        for i, s in enumerate(slides)
+    )
+    dot_buttons = "\n    ".join(
+        f'<button class="hero-dot{" active" if i == 0 else ""}" data-slide="{i}" aria-label="Go to slide {i+1}"></button>'
+        for i in range(len(slides))
+    )
+
     content = f"""{head(
         f"{B['industry']} in {B['city']}, NY | {NAME} | {PHONE}",
         f"{NAME} provides professional {B['industryLower']} in {B['city']}, NY. Call {PHONE} for a free estimate!",
@@ -395,8 +405,10 @@ def make_homepage():
 {nav()}
 
 <!-- HERO -->
-<section class="hero">
-  <img class="hero-bg" src="/images/Gemini_Generated_Image_imgt0pimgt0pimgt.png" alt="Beautiful Long Island front yard landscaped by {NAME}" />
+<section class="hero" id="hero-carousel">
+  <div class="hero-slides">
+    {slide_divs}
+  </div>
   <div class="hero-overlay"></div>
   <div class="container">
     <div class="hero-content">
@@ -409,13 +421,40 @@ def make_homepage():
         <a href="tel:{PHONE_RAW}" class="btn btn-outline-white btn-lg">Call {PHONE}</a>
       </div>
       <div class="hero-trust">
-        <span>⭐ 5-Star Rated</span>
-        <span>🛡️ Certified &amp; Insured</span>
-        <span>📍 Hempstead, NY Based</span>
+        <span>5-Star Rated</span>
+        <span>Certified &amp; Insured</span>
+        <span>Hempstead, NY Based</span>
       </div>
     </div>
   </div>
+  <div class="hero-slide-dots">
+    {dot_buttons}
+  </div>
 </section>
+<script>
+(function() {{
+  var slides = document.querySelectorAll('#hero-carousel .hero-slide');
+  var dots   = document.querySelectorAll('#hero-carousel .hero-dot');
+  var cur = 0, timer;
+  function goTo(n) {{
+    slides[cur].classList.remove('active');
+    dots[cur].classList.remove('active');
+    cur = (n + slides.length) % slides.length;
+    slides[cur].classList.add('active');
+    dots[cur].classList.add('active');
+  }}
+  function next() {{ goTo(cur + 1); }}
+  function start() {{ timer = setInterval(next, 5500); }}
+  function stop()  {{ clearInterval(timer); }}
+  dots.forEach(function(dot, i) {{
+    dot.addEventListener('click', function() {{ stop(); goTo(i); start(); }});
+  }});
+  var hero = document.getElementById('hero-carousel');
+  hero.addEventListener('mouseenter', stop);
+  hero.addEventListener('mouseleave', start);
+  start();
+}})();
+</script>
 
 <!-- STATS -->
 <div class="stats-bar">
