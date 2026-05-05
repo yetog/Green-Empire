@@ -19,7 +19,20 @@
       "Bash(git commit *)",
       "mcp__claude_ai_Gmail__create_draft",
       "WebFetch(domain:diamondridgeny.com)",
-      "WebFetch(domain:tcrbuilders.com)"
+      "WebFetch(domain:tcrbuilders.com)",
+      "Bash(python -m http.server 8080)",
+      "Bash(python -c ' *)",
+      "Bash(git remote *)",
+      "Bash(git push *)",
+      "Bash(Select-String \"logo|favicon\")",
+      "PowerShell(New-Item *)",
+      "Bash(wait)",
+      "PowerShell(Get-ChildItem \"C:\\\\Users\\\\iyoungburke\\\\Desktop\\\\Green-Empire-main\\\\images\\\\hero-slides\" | Select-Object Name, @{N='KB';E={[math]::Round\\($_.Length/1KB\\)}})",
+      "Bash(git show *)",
+      "Read(//tmp/**)",
+      "Bash(python \"C:/Users/iyoungburke/Desktop/Green-Empire-Builders/generate.py\" --version)",
+      "WebFetch(domain:www.greenempireland.com)",
+      "WebFetch(domain:www.greenempirebuild.com)"
     ]
   }
 }
