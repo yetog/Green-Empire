@@ -322,7 +322,7 @@ Rules:
 - Deleted 10 old service directories, generated 7 new ones
 - Pushed + wrote email reply to Ariel
 
-### Session 3 (this session)
+### Session 3
 - Added nginx deployment context to AGENTS.md
 - Confirmed site live at https://zaylegend.com/green-empire/
 - Added "How It Works" 3-step section to homepage
@@ -343,3 +343,12 @@ Rules:
 - Why Us → team of 4 in Green Empire shirts
 - About page → Hero.png (owner/team member in branded shirt)
 - Written MEETING-BRIEF.md and WORKFLOW.md
+
+### Session 4 — Design Sync + Hero Carousel (May 2026)
+- Removed top-bar phone banner from nav (was green bar above navigation)
+- Added hero slideshow carousel (4 slides, fade transition, dot nav, pause on hover) driven by `heroSlides` array in `site.config.json`
+- Replaced all emojis site-wide with inline Lucide SVGs (`_svg()` helper, no external CDN)
+- Added hero brand name eyebrow (`<span class="hero-brand-name">`) above badge
+- Logo height increased to 76px (was 60px, too small in 96px nav bar)
+- Confirmed GEL and GEB are separate repos with separate codebases — changes are never synced between them without explicit instruction
+- Live at `greenempireland.com` via GitHub + nginx
