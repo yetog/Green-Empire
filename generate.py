@@ -248,7 +248,6 @@ def booking_form(compact=False):
     <div class="form-group"><label>Details</label><textarea name="message" rows="3" placeholder="Tell us about your project..."></textarea></div>
     <input type="text" name="_gotcha" style="display:none" />
     <input type="hidden" name="_next" value="/thank-you.html" />
-    <div class="form-check"><label class="form-check-label"><input type="checkbox" name="sms_opt_in" value="yes" class="form-check-input" /> Text me updates about my estimate</label></div>
     <button type="submit" class="btn btn-primary btn-block">Send Request →</button>
   </form>
 </div>"""
@@ -275,7 +274,6 @@ def booking_form(compact=False):
     <input type="text" name="_gotcha" style="display:none" />
     <input type="hidden" name="_subject" value="New Estimate Request — {NAME}" />
     <input type="hidden" name="_next" value="/thank-you.html" />
-    <div class="form-check"><label class="form-check-label"><input type="checkbox" name="sms_opt_in" value="yes" class="form-check-input" /> Text me updates about my estimate</label></div>
     <button type="submit" class="btn btn-primary btn-block">Send My Request →</button>
     <p class="form-disclaimer">We respect your privacy. No spam, ever.</p>
   </form>
