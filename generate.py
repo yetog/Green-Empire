@@ -258,10 +258,7 @@ def booking_form(compact=False):
     <p>We respond within 1 business hour</p>
   </div>
   <form action="{WEBHOOK}" method="POST" class="booking-form" data-phone="{PHONE}">
-    <div class="form-row">
-      <div class="form-group"><label>First Name *</label><input type="text" name="first_name" required placeholder="John" /></div>
-      <div class="form-group"><label>Last Name *</label><input type="text" name="last_name" required placeholder="Smith" /></div>
-    </div>
+    <div class="form-group"><label>Name *</label><input type="text" name="name" required placeholder="Your full name" /></div>
     <div class="form-row">
       <div class="form-group"><label>Phone *</label><input type="tel" name="phone" required placeholder="{PHONE}" /></div>
       <div class="form-group"><label>ZIP Code *</label><input type="text" name="zip" required placeholder="{B['zip']}" maxlength="5" /></div>
