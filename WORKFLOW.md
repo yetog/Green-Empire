@@ -352,3 +352,15 @@ Rules:
 - Logo height increased to 76px (was 60px, too small in 96px nav bar)
 - Confirmed GEL and GEB are separate repos with separate codebases — changes are never synced between them without explicit instruction
 - Live at `greenempireland.com` via GitHub + nginx
+
+### Session 5 — Photo Swap, Form Fix & Zapier Cleanup (May 2026)
+- Replaced all 4 AI-generated hero slides with 3 real landscaping photos (supplied via projects.zip)
+- Added real project photos to Outdoor Living Spaces and Landscape Design & Installation service pages
+- Updated homepage service cards and gallery to use real photos for those two services
+- Restored original AI image in "Why Us / Meet Our Team" split section (was accidentally overwritten during bulk image swap — lesson: target replacements by section, not just filename)
+- Removed "Text me updates about my estimate" SMS opt-in checkbox from all 29 pages and generate.py template
+- Diagnosed Zapier errors: "Not enough credits" is a Quo SMS step failing — unrelated to form data capture; advised user to remove/disable the Quo step since SMS checkbox is gone
+- Identified form field mismatch: homepage/service forms send `name`, but `request-service.html` sent `first_name` + `last_name` — Zapier was mapping `{{name}}` so full estimate page submissions showed blank name
+- Standardized `request-service.html` and generate.py to use single `name` field across all forms
+- Fixed encoding corruption introduced by bulk PowerShell file edit (PowerShell 5.1 `Get-Content` reads ANSI by default, corrupting UTF-8 multi-byte chars) — restored from git, redid edits using `[System.IO.File]::ReadAllText/WriteAllText` with explicit UTF-8 encoding
+- **Upcoming:** GOAT Landscaping — new website, same stack, details TBD
