@@ -1,0 +1,11 @@
+# robots.txt for Green Empire Landscaping
+# https://www.greenempireland.com
+
+User-agent: *
+Allow: /
+
+# Sitemap location
+Sitemap: https://www.greenempireland.com/sitemap.xml
+
+# Disallow admin/internal paths (if any)
+Disallow: /thank-you.html
